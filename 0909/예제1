@@ -1,3 +1,4 @@
+2-1 (타이틀 달기)
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
 </html>
 
 
-
+2-2 (<hr1~> , 문단 제목)
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,7 @@
 </html>
 
 
+2-3 (title , 툴팁 달기)
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +45,7 @@
 </html>
 
 
-
+2-4 (<P> , 단락 나누기)
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,7 +80,7 @@ HTML 문서도 본문을 여러 단락으로
 </html>
 
 
-
+2-5 (<hr> , 수평선 긋기)
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,7 +96,7 @@ HTML 문서도 본문을 여러 단락으로
 </html>
 
 
-
+2-6 (<br> , 다음줄 넘어가기)
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,6 +113,7 @@ HTML 문서도 본문을 여러 단락으로
 </html>
 
 
+2-7 (특수문자, 기호 , 심볼)
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,6 +131,7 @@ HTML 문서도 본문을 여러 단락으로
 </html>
 
 
+2-8 (<pre> , 입력한 그대로 출력)
 <!DOCTYPE html>
 <html>
 <head>
@@ -149,7 +153,7 @@ HTML 문서도 본문을 여러 단락으로
 </body>
 </html>
 
-
+2-9 (택스트 꾸미기)
 <!DOCTYPE html>
 <html>
 <head>
@@ -172,4 +176,31 @@ HTML 문서도 본문을 여러 단락으로
 <mark>하이라이팅</mark><br>
 </p>
 </body>
+</html>
+
+
+2 -10 (din, span)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>&lt;div&gt;블록과 &lt;span&gt;인라인 </title>
+</head>
+<body>
+<h3>사랑</h3>
+<hr>
+<div style="background-color:skyblue; padding:20px;">
+내가 사람의 방언과 천사의 말을 할지라도
+<span style="color:red">사랑</span>이 없으면
+소리 나는 구리와 울리는 꽹과리가 되고,
+<span style="color:red">사랑</span>이 없으면 아무
+것도 아니라.
+</div>
+<p>
+~우리 서로 사랑하며 살아요~
+</p>
+</body>
+</html>
+
 </html>
