@@ -1,0 +1,148 @@
+2 - 21 (파일 다운로드 링크)
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>파일 다운로드</title></head>
+<body>
+<h3>친구들아! 여기서 다운받아!</h3>
+<hr>
+<ul>
+<li><a href="media/Elvis.png" download>엘비스 이미지 다운로드</a>
+<li><a href="media/chapter9.pdf" download>chapter9.pdf 다운로드 </a>
+<li><a href="media/EmbraceableYou.mp3" download>mp3 다운로드</a>
+<li><a href="ex2-09.html" download> 예제 2-9 HTML 파일 다운로드</a>
+<li><a href="media/test.hwp" download>한글 파일 다운로드</a>
+</ul>
+</body>
+</html>
+
+
+2 - 22 (인라인 프레임)
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>iframe을 가지는 웹 페이지</title>
+</head>
+<body>
+<h3>2 개의 &lt;iframe&gt;을 가집니다.</h3>
+<hr>
+<iframe src="iframe1.html" width="200" height="150">
+</iframe>
+<iframe src="iframe2.html" width="200" height="100">
+</iframe>
+</body>
+</html>
+
+
+
+2-22 (인라인 , srcdoc)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>srcdoc 속성 활용</title>
+</head>
+<body>
+<h3>srcdoc에 HTML 문서 작성</h3>
+<hr>
+<iframe src="iframe1.html" width="200" height="80"
+srcdoc="<html><head></head>
+<body>hello</body></html>"
+></iframe>
+</body>
+</html>
+
+
+2 - 23 (<iframe> 미니 브라우저 만들기), 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>iframe을 이용한 신문 사이트</title>
+</head>
+<body>
+<h3>2 개의 신문 사이트입니다.</h3>
+<hr>
+<iframe src="http://www.etnews.com" width="300" height="300"></iframe>
+<iframe src="http://www.mk.co.kr" width="300" height="300"></iframe>
+</body>
+</html>
+
+
+2- 24 ( target 으로 프레임 윈도우 활용)
+
+메인: 
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>target 속성 활용</title></head>
+<body>
+<h3>target 속성 활용</h3>
+<hr>
+<iframe src="ex-24-sitelist.html" name="left" width="200" height="300">
+</iframe>
+<iframe src="http://www.w3c.org" name="right" width="300" height="300">
+</iframe>
+</body>
+</html>
+
+왼쪽 서브 프레임:
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>사이트 리스트</title></head>
+<body>
+<h4>사이트 리스트</h4>
+<ul>
+<li><a href="http://www.w3c.org" target="right">W3C</a>
+<li><a href="http://www.etnews.com" target="_self">전자신문</a>
+<li><a href="http://www.mk.co.kr" target="_top">매일경제신문</a>
+<li><a href="http://www.w3c.org" target="_blank">새 창에 W3C</a>
+</ul>
+</body>
+</html>
+
+
+2 - 25 (<vido>)
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>비디오 삽입</title>
+</head>
+<body>
+<h3>비디오 삽입</h3>
+<hr>
+<video src="media/bear.mp4"
+width="320" height="240" controls>
+브라우저가 video 태그를 지원하지 않습니다.
+</video>
+</body>
+</html>
+
+
+2 - 26 (<audio>)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>오디오 삽입</title>
+</head>
+<body>
+<h3>오디오 삽입</h3>
+<hr>
+재생 버튼을 누르면 음악이 연주됩니다.
+<audio src="media/EmbraceableYou.mp3"
+controls loop>
+브라우저가 audio 태그를 지원하지 않습니다.
+</audio>
+</body>
+</html>
+
+
+
+
+
+
