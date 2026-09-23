@@ -1,0 +1,162 @@
+1. 시맨틱 태그(<header>, <section>, <article>, <footer>, <nav> )
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 문서 구조 시맨틱 태그 사용</title>
+</head>
+<body>
+<header>header</header>
+<nav>nav</nav>
+<section>section</section>
+<aside>aside</aside>
+<footer>footer</footer>
+</body>
+</html>
+
+
+2.
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 문서 구조 시맨틱 태그 사용</title>
+<style>
+html, body { margin: 0; padding: 0; height: 100%; }
+header { width: 100%; height: 15%;
+background: yellow; }
+nav { width: 15%; height: 70%; float: left;
+background: orange; }
+section { width: 70%; height: 70%; float: left;
+background: olivedrab; }
+aside { width: 15%; height: 70%; float: left;
+background: orange; }
+footer { width: 100%; height: 15%; clear: both;
+background: plum; }
+</style>
+</head>
+<body>
+<header>header</header>
+<nav>nav</nav>
+<section>section</section>
+<aside>aside</aside>
+<footer>footer</footer>
+</body>
+</html>
+
+
+3. (<figure>)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>figure 태그 활용</title>
+</head>
+<body>
+<h3>figure 태그 활용</h3>
+<hr>
+<figure id="1-1">
+  <figcaption>alert() 함수 활용</figcaption>
+  <pre>
+  <code>function f() { alert("경고합니다"); }</code>
+  </pre>
+  <hr>
+  <small>실행결과<small>
+  <pre>
+    <img src="media/alert.png" alt="실행결과">
+  </pre>
+</figure>
+</body>
+</html>
+
+
+4. 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>details와 summary 태그</title>
+</head>
+<body>
+<h3>details와 summary 태그</h3>
+Q &amp; A 리스트
+<hr>
+<details>
+  <summary>Question 1</summary>
+  <p>웹 개발자가 알아야 하는 언어 3 가지?</p>
+</details>
+<details>
+  <summary>Answer 1</summary>
+  <p>HTML5, CSS, Javascript</p>
+</details>
+</body>
+</html>
+
+
+5. (시맨틱 인라인 태그)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>인라인 시맨틱 태그</title>
+</head>
+<body>
+<h3>인라인 시맨틱 태그 사례</h3>
+<hr>
+<p>내일 <mark>HTML5 시험</mark><br>
+시간은 <time>09:00</time><br>
+난이도 <meter value="0.8" max="1.0">80%</meter><br>
+자료 업로딩(20%)
+  <progress value="2" max="10"></progress><br>
+</p>
+</body>
+</html>
+
+
+5. (로그인 폼)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>로그인 폼</title></head>
+<body>
+<h3>로그인 폼</h3>
+<hr>
+<form name="fo" method="get">
+사용자 ID : <input type="text" size="15" value=""><br>
+비밀 번호 : <input type="password" size="15" value="">
+           <input type="submit" value="완료">
+</form>
+</body>
+</html>
+
+
+6. 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>텍스트 입력 폼</title>
+</head>
+<body>
+<h3>자기 소개서 작성</h3>
+<hr>
+<form>
+  이름 : <input type="text" value=""><br>
+  암호 : <input type="password" value="" maxlength="4"><br>
+  자소서 : <textarea cols="20" rows="5">
+              이곳에 자기소개서 작성
+           </textarea>
+</form>
+</body>
+</html>
+
+
+
