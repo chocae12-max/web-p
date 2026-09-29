@@ -1,4 +1,4 @@
-1. 시맨틱 태그(<header>, <section>, <article>, <footer>, <nav> )
+ 시맨틱 태그(<header>, <section>, <article>, <footer>, <nav> )
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
 </html>
 
 
-2.
+1.
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +46,7 @@ background: plum; }
 </html>
 
 
-3. (<figure>)
+2. (<figure>)
 
 <!DOCTYPE html>
 <html>
@@ -72,8 +72,7 @@ background: plum; }
 </html>
 
 
-4. 
-
+3. 
 
 <!DOCTYPE html>
 <html>
@@ -97,7 +96,7 @@ Q &amp; A 리스트
 </html>
 
 
-5. (시맨틱 인라인 태그)
+4. (시맨틱 인라인 태그)
 
 <!DOCTYPE html>
 <html>
@@ -137,7 +136,7 @@ Q &amp; A 리스트
 </html>
 
 
-6. 
+6. (텍스트 입력)
 
 <!DOCTYPE html>
 <html>
@@ -154,6 +153,105 @@ Q &amp; A 리스트
   자소서 : <textarea cols="20" rows="5">
               이곳에 자기소개서 작성
            </textarea>
+</form>
+</body>
+</html>
+
+
+7.
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>데이터 목록을 가진 텍스트 입력</title>
+</head>
+<body>
+<h3>가보고 싶은 곳</h3>
+<hr>
+<form>
+나라 : <input type="text" list="countries"><br>
+        <datalist id="countries">
+          <option value="가나">
+          <option value="스위스">
+          <option value="브라질">
+        </datalist>
+보고싶은것 : <input type="text" list="what"><br>
+      <datalist id="what">
+        <option value="산">
+        <option value="바다">
+        <option value="도시">
+      </datalist>
+</form>
+</body>
+</html>
+
+
+8.
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>버튼이 있는 입력 폼</title>
+</head>
+<body>
+<h3>버튼을 만들자</h3>
+<hr>
+<form>
+  검색: <input type="text" size="10" value="">
+        <input type="button" value="Q1">
+        <button type="button">Q2</button><br>
+  submit 버튼 : <input type="submit" value="전송1">
+                <button type="submit">전송2</button><br>
+  reset 버튼 : <input type="reset" value="리셋1">
+<button type="reset">리셋2</button><br>
+  이미지버튼 : <input type="image" src="media/button.png"
+                alt="이미지 버튼">
+            <button type="button">
+              <img src="media/button.png" alt="이미지 버튼">
+</button>
+</form>
+</body>
+</html>
+
+
+9. 체크박스 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>체크 박스 만들기</title>
+</head>
+<body>
+<h3>먹고 싶은 것 모두 체크하세요</h3>
+<hr>
+<form>
+  짜장면 <input type="checkbox" value="1">
+  짬뽕 <input type="checkbox" value="2" checked>
+  탕수육 <input type="checkbox" value="3">
+</form>
+</body>
+</html>
+
+
+10. 라디오 버튼
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>라디오버튼 만들기</title>
+</head>
+<body>
+<h3>먹고 싶은 것 하나만 선택?</h3>
+<hr>
+<form>
+  <input type="radio" name="china" value="1">
+      짜장면<img src="media/jajang.png"><br>
+  <input type="radio" name="china" value="2" checked>
+      짬뽕<img src="media/jjambbong.png"><br>
+  <input type="radio" name="china" value="3">
+      탕수육<img src="media/tangsuyuk.png">
 </form>
 </body>
 </html>
