@@ -1,0 +1,219 @@
+
+11. (콤보박스 만들기)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>콤보박스 만들기</title>
+</head>
+<body>
+<h3>먹고 싶은 음식은?</h3>
+<hr>
+<form>
+  <select name="china">
+    <option value="1">짜장면</option>
+    <option value="2" selected>짬뽕</option>
+    <option value="3">탕수육</option>
+  </select>
+</form>
+</body>
+</html>
+
+
+12. (<label>)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>로그인 폼</title>
+</head>
+<body>
+<h3>로그인 폼</h3>
+<hr>
+<form name="fo" method="get">
+  <label>사용자 ID : <input type="text" size="15" value="">
+  </label><br>
+  <label for="pass">비밀 번호 : </label>
+  <input id="pass" type="password" size="15" value="">
+  <input type="submit" value="완료">
+</form>
+</body>
+</html>
+
+
+13. (<lable>)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>캡션을 가진 라디오버튼</title>
+</head>
+<body>
+<h3>먹고 싶은 것 하나만 선택?(&lt;label&gt;이용)</h3>
+<hr>
+<form>
+  <label>
+    <input type="radio" name="china" value="1">
+    짜장면 <img src="media/jajang.png">
+</label><br>
+  <label>
+    <input type="radio" name="china" value="2" checked>
+    짬뽕 <img src="media/jjambbong.png">
+</label><br>
+<label>
+  <input type="radio" name="china" value="3">
+  탕수육 <img src="media/tangsuyuk.png">
+</label>
+</form>
+</body>
+</html>
+
+
+14. (컬러 다이얼로그)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>색 입력</title>
+</head>
+<body>
+<h3>컬러다이얼로그로 색 입력</h3>
+<hr>
+<form>
+  색 선택
+  <input type="color" value="#00BFFF"
+onchange="document.body.style.color=this.value">
+</form>
+</body>
+</html>
+
+
+15. (시간 정보 입력)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>시간 정보를 입력하는 폼 활용</title>
+</head>
+<body>
+<h3>시간 정보 입력 HTML5 폼 요소들</h3>
+초기 세팅 : 2022년 3월 1일 밤 9시 30분(10초 32)<br>
+시간을 변경해 보세요
+<hr>
+<form>
+<pre>
+month : <input type="month" value="2022-03"><br>
+week : <input type="week" value="2022-W09"><br>
+data : <input type="date" value="2022-03-01"><br>
+time : <input type="time" value="21:30"><br>
+local: <input type="datetime-local"
+value="2022-03-01T21:30:10.32"><br>
+</pre>
+</form>
+</body>
+</html>
+
+16 (생일 날짜 입력)
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>시간 정보 입력 응용</title>
+</head>
+<body>
+<h3>생일축하합니다</h3>
+<hr>
+당신의 생일은 2003년 2월 9일입니다. 틀리면 수정하시고
+파티 시간과 장소를 입력하세요.
+<hr>
+<form>
+<table>
+  <tr><td>생일</td>
+      <td><input type="date" value="2003-02-09"></td></tr>
+  <tr><td>생일파티시간</td>
+      <td><input type="time"></td></tr>
+<tr><td>생일파티장소</td>
+      <td><input type="text"></td></tr>
+</table>
+</form>
+</body>
+</html>
+
+
+17. (<input type="number|range">)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>편리한 숫자 입력</title></head>
+<body>
+<h3>홈 제어 시스템 - 온도 조절</h3>
+<hr>
+<form>
+  지속시간 (0.0~10.0시간) :
+  <input type="number" min="0.0" max="10.0"
+              step="0.5"><br><br>
+  온도 설정 :10&deg;
+  <input type="range" min="10" max="30"
+            list="temperatures">30&deg;
+  <datalist id="temperatures">
+    <option value="12" label="Low">
+    <option value="20" label="Medium">
+    <option value="28" label="High">
+  </datalist>
+</form>
+</body>
+</html>
+
+
+18. 형식을 가진 텍스트 입력
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>형식을 가진 텍스트 입력</title>
+</head>
+<body>
+<h3>회원 정보를 입력해주세요.</h3>
+<hr>
+<form>
+  email : <input type="email" placeholder="id@host"><br>
+  홈페이지 : <input type="url" placeholder="http://"><br>
+  전화번호 : <input type="tel" placeholder="010-1234-5678">
+        <input type="submit" value="확인"><br><br>
+<hr>
+  검색어 : <input type="search" placeholder="검색어">
+        <input type="button" value="검색">
+</form>
+</body>
+</html>
+
+
+19. (폼 요소의 그룹핑)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>폼 입력 그룹으로 묶기</title>
+</head>
+<body>
+<h3>회원 정보를 입력해주세요.</h3>
+<hr>
+<form>
+<fieldset>
+<legend>회원정보</legend>
+이메일 : <input type="email"><br>
+홈페이지 : <input type="url"><br>
+전화번호 : <input type="tel">
+</fieldset>
+<small>질문 : Tel. 010-111-1111</small>
+</form>
+</body>
+</html>
+
+
