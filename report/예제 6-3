@@ -1,0 +1,108 @@
+21. countinue 문
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>continue 문</title>
+</head>
+<body>
+<h3>3으로 나눈 나머지가 1인 수만 더하기</h3>
+<hr>
+<script>
+let sum=0;
+for(let i=1; i<=10; i++) { // i가 1에서 10까지 반복
+if(i%3 != 1) // 3으로 나눈 나머지가 1이 아닌 경우
+continue; // 다음 반복으로 점프(i++ 코드로)
+document.write(i + " ");
+sum += i;
+}
+document.write("합은 " + sum);
+</script>
+</body>
+</html>
+
+
+22. adder()
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>함수</title>
+<script>
+function adder(a, b) { // 함수 작성
+let sum;
+sum = a + b;
+return sum;
+}
+</script>
+</head>
+<body>
+<h3>함수 adder()</h3>
+<hr>
+<script>
+let n = adder(24567, 98374); // 함수 호출
+document.write("24567 + 98374는 " + n + "<br>");
+</script>
+</body>
+</html>
+
+
+23. eval(), parseInt(), isNaN()
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>자바스크립트 전역함수</title>
+<script>
+function evalParseIntIsNaN() {
+let res = eval("2*3+4*6"); // res는 30
+document.write("eval(\"2*3+4*6\")는 " + res + "<br>");
+let m = parseInt("32");
+document.write("parseInt(\"32\")는 " + m + "<br>");
+let n = parseInt("0x32");
+document.write("parseInt(\"0x32\")는 " + n + "<br><br>");
+// "hello"는 정수로 변환할 수 없으므로 parseInt("hello")는 NaN 리턴
+n = parseInt("hello"); 
+if(isNaN(n)) // true
+document.write("hello는 숫자가 아닙니다.");
+}
+</script>
+</head>
+<body>
+<h3>eval(), parseInt(), isNaN()</h3>
+<hr>
+<script>
+evalParseIntIsNaN();
+</script>
+</body>
+</html>
+
+
+24. 구구단 출력 함수  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>함수 만들기</title>
+<script>
+function gugudan(n) { // 함수 작성
+let m = parseInt(n); // 문자열 n을 숫자로 바꿈
+if(isNaN(m) || m < 1 || m > 9) { 
+alert("잘못입력하셨습니다.");
+return;
+}
+for(let i=1; i<=9; i++) { // i는 1~9까지 반복
+document.write(m + "x" + i + "=" + m*i + "<br>");
+} 
+}
+</script>
+</head>
+<body>
+<h3>구구단 출력 함수 만들기</h3>
+<hr>
+<script>
+let n = prompt("구구단 몇 단을 원하세요", ""); // n은 문자열
+gugudan(n); // 함수 호출
+</script>
+</body>
+</html>
