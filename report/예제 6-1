@@ -108,16 +108,133 @@ document.write("<mark>7 입니다.</mark>");
 </body>
 </html>
 
-  
+
+6. 지역 변수, 전역 변수, 블록 변수
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>변수 선언</title></head>
+<body>
+<h3>변수 선언, 전역/지역/블록 변수</h3>
+<hr>
+<script>
+let x; // 전역 변수 x 선언. var로 선언해도 동일
+function f() {
+let y; // 함수 f() 내에서만 사용되는 지역 변수 y 선언. var로 선언해도 동일
+x = 10; // 전역 변수 x에 10 저장
+y = 20; // 지역 변수 y에 20 저장
+z = 30; // 새로운 전역 변수 z가 선언되고 30이 저장됨
+if(y == 20) {
+let b = 40; // if 블록에서만 사용되는 블록 변수 b 선언
+b++;
+document.write("if 블록 내 블록변수 b = " + b + "<br>");
+}
+// 이곳에서는 블록 변수 b에 접근할 수 없음
+// 이곳에서는 변수 x, y, z에 모두 접근 가능
+document.write("함수 f() 내 지역변수 y = " + y + "<br>");
+}
+f(); // 함수 f() 호출
+document.write("전역변수 x = " + x + "<br>");
+document.write("전역변수 z = " + z);
+// 이곳에서는 변수 x와 z만 접근 가능, 지역 변수 y와 블록 변수 b는 접근 불가
+</script>
+</body></html>
 
 
+7. 리터럴
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>리터럴</title></head>
+<body>
+<h3>리터럴</h3>
+<hr>
+<script>
+let oct = 015; // 015는 8진수. 10진수로 13
+let hex = 0x15; // 0x14는 16진수. 10진수로 21
+let condition = true; // True로 하면 안됨
+document.write("8진수 015는 십진수로 " + oct + "<br>");
+document.write("16진수 0x15는 십진수로 " + hex + "<br>");
+document.write("condition은 " + condition + "<br>");
+document.write('문자열 : 단일인용부호로도 표현' + "<br>");
+document.write("그녀는 \"누구세요\"라고 했습니다.");
+</script>
+</body>
+</html>
 
 
+8. 산술 연산
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>산술연산</title>
+</head>
+<body>
+<h3>산술연산</h3>
+<hr>
+<script>
+let x=32;
+let total = 100 + x*2/4 - 3; // total은 113
+let div = x / 10; // div는 3.2
+let mod = x % 2; // x를 2로 나눈 나머지, 0
+document.write("x : " + x + "<br><br>");
+document.write("100 + x*2/4 - 3 = " + total + "<br>");
+document.write("x/10 = " + div + "<br>");
+document.write("x%2 = " + mod + "<br>");
+</script>
+</body>
+</html>
 
 
+9. 대입 연산 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>대입 연산</title>
+</head>
+<body>
+<h3>대입 연산</h3>
+<hr>
+<script>
+let x=3, y=3, z=3;
+document.write("x=" + x + ", y=" + y);
+document.write(", z=" + z + "<br><br>");
+x += 3; // x=x+3 -> x=6
+y *= 3; // y=y*3 -> y=9
+z %= 2; // z=z%2 -> z=1
+document.write("x += 3; 실행 후, x=" + x + "<br>");
+document.write("y *= 3; 실행 후, y=" + y + "<br>");
+document.write("z %= 2; 실행 후, z=" + z);
+</script>
+</body>
+</html>
 
 
-
-
-
-  
+10. 비교 연산
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>비교 연산</title>
+</head>
+<body>
+<h3>비교 연산</h3>
+<hr>
+<script>
+let x=13, y=7;
+document.write("x=" + x + ", y=" + y + "<br><br>");
+document.write("x == y : " + (x == y) + "<br>");
+document.write("x != y : " + (x != y) + "<br>");
+document.write("x >= y : " + (x >= y) + "<br>");
+document.write("x > y : " + (x > y) + "<br>");
+document.write("x <= y : " + (x <= y) + "<br>");
+document.write("x < y : " + (x < y) + "<br>");
+</script>
+</body>
+</html>
