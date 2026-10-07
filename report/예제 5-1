@@ -1,1 +1,355 @@
+1. display 프로퍼티로 박스 유형 설정
 
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<title>display 프로퍼티</title>
+<style>
+div {
+border : 2px solid yellowgreen;
+color : blue;
+background : aliceblue;
+}
+span {
+border : 3px dotted red;
+background : yellow;
+}
+</style></head>
+<body>
+<h3>인라인, 인라인 블록, 블록</h3>
+<hr>
+display:none으로 지정되
+어 텍스트가 보이지 않음
+나는 <div style="display:none">
+div(none)</div>입니다.<br><br>
+나는 <div style="display:inline">
+div(inline)</div> 입니다.<br><br>
+나는 <div style="display:inline-block; height:50px">
+div(inline-block)</div> 입니다.<br><br>
+나는 <div>div<span style="display:block">
+span(block)</span> 입니다.
+</div>
+</body>
+</html>
+
+
+2. position : relative 상대 배치
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>relative 배치</title>
+<style>
+div {
+display : inline-block;
+height : 50px;
+width : 50px;
+border : 1px solid lightgray;
+text-align : center;
+color : white;
+background : red;
+}
+#down:hover {
+position : relative;
+left : 20px; 
+top : 20px;
+background : green;
+up:hover {
+position : relative;
+right : 20px; 
+bottom : 20px;
+background : green;
+}
+</style>
+</head>
+
+<body>
+<h3>상대 배치, relative</h3>
+h와 k 글자에 마우스를 올려 보세요
+<hr>
+<div>T</div>
+<div id="down">h</div>
+<div >a</div>
+<div>n</div>
+<div id="up">k</div>
+<div>s</div>
+</body>
+</html>
+
+
+3. position:absolute 절대 배치
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>절대 배치</title>
+<style>
+div {
+display : inline-block;
+position : absolute; /* 절대 배치 */
+border : 1px solid lightgray;
+}
+div > p {
+display : inline-block; /* div의 자식 p */
+position : absolute; /* 절대 배치 */
+height : 20px;
+width : 15px;
+background : lightgray;
+}
+</style>
+</head>
+<body>
+<h3>Merry Christmas!</h3>
+<hr>
+<p>예수님이 탄생하셨습니다.</p>
+<div>
+<img src="media/christmastree.png" 
+width="200" height="200" alt="크리스마스 트리">
+<p style="left:50px; top:30px">M</p>
+<p style="left:100px; top:0px">E</p>
+<p style="left:100px; top:80px">R</p>
+<p style="left:150px; top:110px">R</p>
+<p style="left:30px; top:130px">Y</p>
+</div>
+</body>
+</html>
+
+
+4. position : fixed로 브라우저 하단 오른
+쪽에 고정 배치
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>고정 배치</title>
+<style>
+#fixed { 
+position : fixed;
+bottom : 10px; 
+right : 10px;
+width : 100px; 
+padding : 5px;
+background : red;
+color : white;
+}
+</style></head>
+<body>
+<h3>Merry Christmas!</h3>
+<hr>
+<img src="media/christmastree.png" 
+width="300" height="300" 
+alt="크리스마스 트리">
+<div id="fixed">예수님이 탄생하셨습니다.
+</div>
+</body>
+</html>
+
+
+5. float : right로 브라우저의 오른쪽에 항상 배치
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+<title>float 배치</title>
+<style>
+#float { 
+float : right;
+border : 1px dotted black;
+width : 8em;
+padding : 0.25em;
+margin : 1em;
+}
+</style>
+</head>
+<body>
+<h3>학기말 공지</h3>
+<hr>
+<div>
+<p id="float">
+24일은 피아니스트 조성진의 크리스마스 특별
+연주가 있습니다.</p>
+<p>
+이제 곧 겨울 방학이 시작됩니다. 학기 중 못다한
+Java, C++ 프로그래밍 열심히 하기 바랍니다.
+인턴을 준비하는 학생들은 프로젝트 개발에
+더욱 힘쓰세요. 그럼 다음 학기에 만나요.</p>
+</div>
+</body>
+</html>
+
+
+6. z-index로 카드 쌓기
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>z-index 프로퍼티</title>
+<style>
+div { position : absolute; }
+img { position : absolute; }
+#spadeA { z-index : -3; left : 10px; top : 20px; }
+#spade2 { z-index : 2; left : 40px; top : 30px; }
+#spade3 { z-index : 3; left : 80px; top : 40px; }
+#spade7 { z-index : 7; left : 120px; top : 50px; }
+</style></head>
+<body>
+<h3>z-index 프로퍼티</h3>
+<hr>
+<div>
+<img id="spadeA" src="media/spade-A.png" 
+width="100" height="140" alt="스페이드A">
+<img id="spade2" src="media/spade-2.png" 
+width="100" height="140" alt="스페이드2">
+<img id="spade3" src="media/spade-3.png" 
+width="100" height="140" alt="스페이드3">
+<img id="spade7" src="media/spade-7.png" 
+width="100" height="140" alt="스페이드7">
+</div>
+</body>
+</html>
+
+7. visibility로 텍스트 숨기기
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>visibility 프로퍼티</title>
+<style>
+span { 
+visibility : hidden;
+}
+</style>
+</head>
+<body>
+<h3>다음 빈 곳에 숨은 단어?</h3>
+<hr>
+<ul>
+<li>I (<span>love</span>) you.
+<li>CSS is Cascading (<span>Style</span>) Sheet.
+<li>응답하라 (<span>1988</span>).
+</ul>
+</body>
+</html>
+
+8. overflow 프로퍼티 활용
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>overflow 프로퍼티</title>
+<style>
+p {
+width : 15em;
+height : 3em;
+border : 1px solid lightgray;
+}
+.hidden { overflow : hidden; }
+.visible { overflow : visible; }
+.scroll { overflow : scroll; }
+</style>
+</head>
+<body>
+<h3>overflow 프로퍼티</h3>
+<hr>
+<p class="hidden">overflow에 hidden 값을 적용하면
+박스를 넘어가는 내용이 잘려 보이지 않습니다.</p><br>
+<p class="visible">overflow에 visible 값을 적용하면
+콘텐트가 박스를 넘어가서도 출력됩니다</p><br>
+<p class="scroll">overflow에 scroll 값을 적용하면
+박스에 스크롤바를 붙여 출력합니다.</p>
+</body>
+</html>
+
+
+9. CSS3 스타일을 응용하여 리스트 메뉴 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>리스트로 메뉴 만들기</title>
+<style>
+#menubar {
+background : olive;
+}
+#menubar ul { /* 여백과 패딩 모두 0 */
+margin : 0;
+padding : 0;
+width : 567px; /* 모든 아이템(<li>)을 한 줄에 품을 수 있는 폭 */
+}
+#menubar ul li {
+display : inline-block; /* 새 줄로 넘어가지 않게 */
+list-style-type : none; /* 마커 삭제 */
+padding : 0px 15px; /* top=bottom=0, left=right=15px */ 
+}
+#menubar ul li a {
+color : white;
+text-decoration : none; /* 링크 보이지 않게 */
+}
+#menubar ul li a:hover {
+color : violet; /* 마우스 올라 갈 때 색 */
+}
+</style></head>
+<body>
+<nav id="menubar">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Espresso</a></li>
+<li><a href="#">Cappuccino</a></li>
+<li><a href="#">Cafe Latte</a></li>
+<li><a href="#">F.A.Q</a></li>
+</ul>
+</nav>
+</body>
+</html>
+
+
+10. 마우스가 올라온 구역 배경색이 변하는 표 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>표 응용 1</title>
+<style>
+table { /* 이중 테두리 제거 */
+border-collapse : collapse; 
+}
+td, th { /* 모든 셀에 적용 */
+text-align : left;
+padding : 5px;
+height : 15px; 
+width : 100px;
+}
+thead, tfoot { /* <thead>의 모든 셀에 적용 */
+background : darkgray;
+color : yellow;
+}
+tbody tr:nth-child(even) { /* 짝수 <tr>에 적용*/
+background : aliceblue;
+}
+tbody tr:hover {
+background : pink;
+}
+</style></head>
+<body>
+<h3>2017년 1학기 성적</h3>
+<hr>
+<table>
+<thead>
+<tr><th>이름</th><th>HTML</th><th>CSS</th></tr>
+</thead>
+<tfoot>
+<tr><th>합</th><th>310</th><th>249</th></tr>
+</tfoot>
+<tbody>
+<tr><td>황기태</td><td>80</td><td>70</td></tr>
+<tr><td>이재문</td><td>95</td><td>99</td></tr>
+<tr><td>이병은</td><td>85</td><td>90</td></tr>
+<tr><td>김남윤</td><td>50</td><td>40</td></tr>
+</tbody>
+</table> 
+</body>
+</html>
