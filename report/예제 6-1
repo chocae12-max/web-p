@@ -1,0 +1,123 @@
+1. HTML 태그 마우스 위치에 따른 이벤트 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이벤트 리스너 속성에 자바스크립트 코드</title>
+</head>
+<body>
+<h3>마우스 올려 보세요</h3>
+<hr>
+<img src="media/apple.png" alt="이미지" 
+onmouseover="this.src='media/banana.png'"
+onmouseout="this.src='media/apple.png'">
+</body>
+</html>
+
+  
+2. (<script>) 태그에 자바스크립트코드
+  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>script 태그에 자바스크립트 작성</title>
+<script>
+function over(obj) {
+obj.src="media/banana.png";
+}
+obj는 전달받은
+img 태그를 가리킴
+function out(obj) {
+obj.src="media/apple.png";
+}
+</script>
+</head>
+<body>
+<h3>마우스 올려 보세요</h3>
+<hr>
+<img src="media/apple.png" alt="이미지" 
+onmouseover="over(this)"
+onmouseout="out(this)">
+</body>
+</html>
+
+
+3. 자바스크립트 파일 불러 오기 
+
+/* 자바스크립트 파일 lib.js */
+function over(obj) {
+obj.src="media/banana.png";
+}
+function out(obj) {
+obj.src="media/apple.png";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>외부 파일에 자바스크립트 작성</title>
+<script src="lib.js">
+</script>
+</head>
+<body>
+<h3>마우스 올려 보세요</h3>
+<hr>
+<img src="media/apple.png" alt="이미지" 
+onmouseover="over(this)"
+onmouseout="out(this)">
+</body>
+</html>
+
+
+4. 링크의 href
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>URL에 자바스크립트 작성</title>
+</head>
+<body>
+<h3>링크의 href에 자바스크립트 작성</h3>
+<hr>
+<a href="javascript:alert('클릭하셨어요?')">
+클릭해보세요</a>
+</body>
+</html>
+
+
+5. document.write()로 웹 페이지에 HTML 콘텐츠
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>document.write() 활용</title>
+</head>
+<body>
+<h3>document.write() 활용</h3>
+<hr>
+<script>
+document.write("<h3>Welcome!</h3>");
+document.write("2 + 5 는 <br>");
+document.write("<mark>7 입니다.</mark>");
+</script>
+</body>
+</html>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
