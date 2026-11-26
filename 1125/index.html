@@ -1,112 +1,508 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <base target="_top">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>11월25일 저녁 신청 받기</title>
-    <style>
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 20px;
-        background: #f5f7fb;
-        color: #243041;
-        font-family: Arial, "Malgun Gothic", sans-serif;
-      }
-      main {
-        width: min(100%, 460px);
-        padding: 30px;
-        border-radius: 16px;
-        background: white;
-        box-shadow: 0 10px 32px rgba(22, 38, 65, 0.08);
-      }
-      h1 { margin: 0 0 8px; font-size: 25px; }
-      p { margin: 0 0 24px; color: #607086; }
-      label { display: block; margin: 18px 0 7px; font-weight: bold; }
-      input, textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #cbd3df;
-        border-radius: 8px;
-        background: #fff;
-        color: #243041;
-        font: inherit;
-      }
-      textarea { min-height: 100px; resize: vertical; }
-      input:focus, textarea:focus { outline: 2px solid #3269dc; outline-offset: 1px; }
-      button {
-        width: 100%;
-        margin-top: 24px;
-        padding: 13px;
-        border: 0;
-        border-radius: 8px;
-        background: #3269dc;
-        color: white;
-        font: inherit;
-        font-weight: bold;
-        cursor: pointer;
-      }
-      button:disabled { opacity: .6; cursor: wait; }
-      #status { min-height: 24px; margin: 14px 0 0; }
-      .success { color: #11754c; }
-      .error { color: #bf3030; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>11월25일 저녁 신청 받기</h1>
-      <p>원하는 음식과 하고 싶은 말을 적어 주세요.</p>
+<head>
+  <meta charset="UTF-8">
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="전자기기에 대한 호기심을 코드로 이어가는 소프트웨어학과 조재완의 포트폴리오. 웹 실습 프로젝트와 학습 기록을 소개합니다.">
+  <title>조재완 | 소프트웨어 포트폴리오</title>
+  <style>
+/* 조재완 포트폴리오: 공통 색상과 화면 구성 */
+:root{--bg:#fafaf8;--surface:#fff;--surface-soft:#f2f4f8;--text:#20252e;--muted:#737a87;--line:#e4e7eb;--blue:#285ae8;--blue-soft:#edf1ff;--green:#41a77c;--shadow:0 20px 70px rgba(37,49,80,.07);--radius:18px;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:98px}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Pretendard,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.7;word-break:keep-all}body.modal-open{overflow:hidden}a{color:inherit;text-decoration:none}button,input{font:inherit}button{color:inherit;cursor:pointer}button,a,input,summary{touch-action:manipulation}button{border:0}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--blue);outline-offset:5px}button:disabled{cursor:default}svg{display:block}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.4}button:where(:not(.button)){background:none}::selection{background:#cfdbff;color:#183d9d}.container{width:min(1140px,calc(100% - 80px));margin:0 auto}.section{scroll-margin-top:20px}.accent{color:var(--blue)}.skip-link{position:fixed;top:-100px;left:20px;background:var(--blue);color:white;padding:10px 20px;z-index:100}.skip-link:focus{top:10px}.site-header{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 93%,transparent);backdrop-filter:blur(16px)}.header-inner{height:82px;width:min(1240px,calc(100% - 80px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;gap:12px;font-size:16px;font-weight:800;letter-spacing:1.2px}.brand-symbol{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--blue);color:white;font-size:26px;line-height:1;font-weight:700;letter-spacing:-2px;padding-right:3px;padding-bottom:5px}.brand-dot{color:var(--blue)}nav{display:flex;gap:30px;align-items:center}.nav-link{position:relative;line-height:82px;font-size:13px;font-weight:600;color:var(--muted);transition:color .2s}.nav-link:hover,.nav-link.active{color:var(--blue)}.nav-link.active:after{content:"";width:4px;height:4px;border-radius:50%;position:absolute;bottom:15px;left:calc(50% - 2px);background:var(--blue)}.header-actions{display:flex;gap:10px}.icon-button{display:grid;place-items:center;min-width:38px;height:38px;border-radius:50%;border:1px solid var(--line);transition:background .2s}.icon-button:hover{background:var(--surface-soft)}.icon-button svg{width:19px;height:19px}.sun-icon{display:none}.menu-toggle{display:none}.eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);display:flex;align-items:center;gap:11px}.section-number{font-size:10px;font-weight:500;color:var(--blue);border:1px solid var(--line);border-radius:50%;width:25px;height:25px;display:inline-grid;place-items:center;letter-spacing:0}.hero{padding-top:74px}.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:45px;align-items:center}.hero-eyebrow{letter-spacing:1.35px;font-size:10px;margin-bottom:28px;color:var(--text)}.status-dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 0 4px color-mix(in srgb,var(--green) 9%,transparent)}h1{font-size:clamp(38px,4.4vw,63px);font-weight:800;letter-spacing:-3.4px;line-height:1.35;white-space:nowrap}h1 span{color:var(--blue)}.hero-intro{margin-top:25px;font-size:17px;letter-spacing:-.5px}.hero-intro strong{font-weight:700}.hero-description{color:var(--muted);font-size:14px;line-height:1.9;margin-top:9px}.hero-buttons{display:flex;gap:11px;margin-top:29px}.button{display:inline-flex;gap:18px;align-items:center;justify-content:center;border-radius:8px;padding:12px 19px;font-weight:600;font-size:12px;transition:transform .2s,background .2s}.button:hover{transform:translateY(-2px)}.button span{font-size:18px;line-height:1}.button-primary{background:var(--blue);color:white;border:1px solid var(--blue)}.button-primary:hover{background:#1747cf}.button-secondary{background:var(--surface);border:1px solid var(--line);color:var(--text)}.hero-tags{display:flex;gap:16px;margin-top:25px;color:var(--muted);font-size:11px}.hero-tags span:before{content:"#";color:#a7afbd;margin-right:4px}.profile-area{position:relative;padding:34px 15px 24px}.profile-grid{position:absolute;inset:0 -20px 30px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse,black 30%,transparent 72%);opacity:.85}.profile-card{position:relative;transform:rotate(3deg);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}.profile-top{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;font-size:9px;font-family:Consolas,monospace;letter-spacing:.8px;border-bottom:1px solid var(--line);color:var(--muted)}.profile-top>span:first-child{display:flex;align-items:center;gap:7px}.tiny-square{display:inline-block;width:6px;height:6px;border:1px solid var(--blue)}.profile-placeholder{min-height:273px;display:flex;align-items:center;justify-content:center;flex-direction:column;background:linear-gradient(135deg,var(--surface),var(--surface-soft))}.profile-placeholder svg{width:57px;height:57px;color:#9da8bd;margin-bottom:14px}.profile-placeholder strong{font-size:23px;font-weight:500;letter-spacing:-1px}.profile-placeholder>span{font-size:10px;color:var(--muted);margin-top:6px}.profile-bottom{font-size:10px;padding:14px 20px;border-top:1px solid var(--line);color:var(--muted)}.profile-bottom code>span:first-child{color:var(--blue);margin-right:5px}.cursor{animation:blink 1.3s steps(2) infinite;color:var(--blue)}.profile-caption{position:relative;display:flex;justify-content:flex-end;align-items:center;gap:8px;font-size:10px;color:var(--muted);margin-top:28px;transform:rotate(-3deg)}.caption-line{height:1px;width:27px;background:var(--muted)}.hero-footer{display:flex;align-items:flex-end;justify-content:space-between;margin-top:61px;padding:24px 0 30px;border-bottom:1px solid var(--line)}.hero-footer>span{font-size:8px;color:var(--muted);letter-spacing:1.3px;line-height:2}.hero-footer strong{font-size:11px;font-weight:500;color:var(--text);letter-spacing:0}.scroll-link{font-size:8px;font-weight:600;letter-spacing:1.3px;color:var(--muted);display:flex;align-items:center;gap:25px}.scroll-link span{font-size:21px;color:var(--blue)}.about-section{padding:98px 0 100px}.about-layout{display:grid;grid-template-columns:1fr 1.35fr;gap:94px}.section-heading h2{margin-top:18px;font-size:30px;letter-spacing:-1.6px;font-weight:750;line-height:1.5}.about-lead{font-size:23px;letter-spacing:-.8px;line-height:1.6;margin-bottom:20px}.about-lead strong{font-weight:650}.about-content>p:not(.about-lead){font-size:13px;color:var(--muted);line-height:1.95;margin-top:12px}.about-facts{margin:25px 0 0;padding:0;border-top:1px solid var(--line)}.about-facts>div{padding:12px 0;display:flex;gap:20px;border-bottom:1px solid var(--line);font-size:12px}.about-facts dt{color:var(--muted);width:87px;flex-shrink:0}.about-facts dd{margin:0;font-weight:500}.goal-note{display:flex;gap:13px;align-items:center;background:var(--blue-soft);padding:16px 19px;border-radius:8px;margin-top:22px;color:var(--blue)}.goal-note>span{font-size:25px}.goal-note p{font-size:11px;line-height:1.8}.skills-section{padding:78px 0 85px;background:var(--surface-soft);border-block:1px solid var(--line)}.heading-row{display:flex;align-items:flex-end;justify-content:space-between;gap:25px}.section-description{font-size:12px;color:var(--muted);line-height:1.85}.heading-row .section-description{text-align:right;margin-bottom:5px}.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-top:34px}.skill-card{position:relative;padding:24px 22px 21px;background:var(--surface);border:1px solid var(--line);border-radius:12px}.skill-icon{width:39px;height:39px;border-radius:9px;display:grid;place-items:center;font-size:17px;font-weight:700;font-family:Consolas,monospace;margin-bottom:22px}.html-icon{background:#fff0e8;color:#d76c37}.js-icon{background:#fff8d9;color:#a6891e}.java-icon{background:#eaf1ff;color:#4e70b8}.os-icon{background:#eaf5ee;color:#458466;font-size:23px}.skill-state{position:absolute;right:20px;top:33px;font-size:9px;color:var(--muted)}.skill-card h3{font-size:15px;letter-spacing:-.3px}.skill-card p{font-size:11px;line-height:1.95;color:var(--muted);margin-top:10px}.skill-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px}.skill-tags span{font-size:9px;padding:2px 7px;background:var(--surface-soft);border:1px solid var(--line);border-radius:4px;color:var(--muted)}.projects-section{padding:90px 0 95px}.work-count{font-size:9px;font-family:Consolas,monospace;letter-spacing:1px;color:var(--muted);margin-bottom:8px}.project-filters{display:flex;gap:7px;margin:31px 0 26px}.filter-button{display:flex;gap:8px;align-items:center;padding:7px 14px;border:1px solid transparent;border-radius:6px;font-size:11px;color:var(--muted)}.filter-button span{font-size:9px;opacity:.7}.filter-button.selected{background:var(--text);color:var(--surface)}.filter-button:not(.selected):hover{background:var(--surface-soft);border-color:var(--line)}.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:29px 25px}.project-card{min-width:0;border-radius:13px;border:1px solid var(--line);background:var(--surface);overflow:hidden;transition:transform .25s,box-shadow .25s}.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(40,50,80,.06)}.project-card[hidden]{display:none}.project-visual{position:relative;width:100%;height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:left;padding:42px 36px 24px}.event-visual{background:#edf1ff!important}.shop-visual{background:#edf4ee!important}.notes-visual{background:#f5f0e8!important}.visual-label{position:absolute;top:19px;left:24px;font-size:8px;font-weight:600;letter-spacing:1.8px;color:#6f7b96}.visual-arrow{position:absolute;bottom:16px;right:18px;display:grid;place-items:center;width:28px;height:28px;background:#ffffffaa;border-radius:50%;font-size:18px;color:#637086;transition:transform .2s}.project-visual:hover .visual-arrow{transform:translate(2px,-2px)}.mini-browser{width:83%;background:#fff;border:1px solid #dce2f2;border-radius:8px;box-shadow:0 11px 25px #273c7720;transform:rotate(-3deg);overflow:hidden;transition:transform .3s}.project-visual:hover .mini-browser{transform:rotate(0)}.mini-browser-top{height:26px;background:#fafbfe;display:flex;gap:4px;align-items:center;padding:0 10px;border-bottom:1px solid #e7eaf3}.mini-browser-top i{width:4px;height:4px;background:#ccd2e0;border-radius:50%}.mini-browser-top span{font-size:7px;position:absolute;left:39%;color:#8a93a7;font-family:Consolas,monospace}.mini-event{height:141px;background-image:radial-gradient(#d9dff3 1px,transparent 1px);background-size:13px 13px;position:relative;display:flex;align-items:center;justify-content:center}.event-crosshair{font-size:40px;line-height:1;font-weight:200;color:#94a8e8;position:absolute;left:44%;top:34%}.event-coordinate{font-size:9px;font-family:Consolas,monospace;background:white;color:#5274d6;padding:4px 10px;border:1px solid #dde5fc;border-radius:4px;position:absolute;left:35%;top:12%}.pointer-art{width:27px;height:34px;position:absolute;left:50%;top:43%;filter:drop-shadow(1px 2px 2px #285ae830)}.event-chip{position:absolute;bottom:12px;left:15px;font-family:Consolas,monospace;font-size:8px;color:#8290b4}.mini-shop{width:73%;padding:15px 21px 8px;background:#fff;border:1px solid #dfe9e0;border-radius:9px;box-shadow:0 11px 25px #1e583c12;transform:rotate(3deg)}.mini-shop-row{display:flex;align-items:center;gap:10px;font-size:10px;color:#465c4e;padding:8px 0}.mini-shop-row strong{margin-left:auto;font-family:Consolas,monospace;font-size:10px;font-weight:400}.mini-check{height:12px;width:12px;border:1px solid #ceddd3;border-radius:3px;display:grid;place-items:center;font-size:9px}.mini-check.checked{background:#578469;color:white;border-color:#578469}.mini-total{border-top:1px dashed #d6e2d9;margin-top:6px;padding:11px 0;display:flex;justify-content:space-between;align-items:center}.mini-total>span{font-size:7px;letter-spacing:1px;color:#7e9587}.mini-total strong{font-size:21px;letter-spacing:-1px;color:#2f5a40}.mini-total small{font-size:9px;margin-left:4px;font-weight:400}.project-info{padding:23px 24px}.project-meta{display:flex;justify-content:space-between;font-family:Consolas,monospace;font-size:8px;letter-spacing:1px;color:var(--muted);margin-bottom:10px}.project-info h3{font-size:17px;letter-spacing:-.55px;font-weight:650}.title-button{padding:0;text-align:left;font-weight:inherit}.title-button:hover{color:var(--blue)}.project-info p{font-size:11px;color:var(--muted);line-height:1.9;margin-top:10px}.project-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:22px}.tech-tags{display:flex;gap:5px;flex-wrap:wrap}.tech-tags span{font-size:8px;padding:3px 7px;border-radius:4px;border:1px solid var(--line);color:var(--muted)}.text-button{padding:0;color:var(--blue);font-weight:600;font-size:10px;white-space:nowrap}.text-button:hover{text-decoration:underline;text-underline-offset:4px}.text-button>span{margin-left:6px;font-size:14px}.study-project{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.study-project .project-visual{height:246px}.study-project .project-info{display:flex;flex-direction:column;justify-content:center;padding:30px}.study-project .project-meta{margin-bottom:15px}.note-paper{padding:25px 27px 18px;width:84%;height:173px;background:repeating-linear-gradient(#fffcf5 0px,#fffcf5 23px,#eae4d9 24px);transform:rotate(-4deg);border:1px solid #e8dfcf;box-shadow:0 10px 20px #75633f14;position:relative;color:#776647}.note-title{font-size:10px;letter-spacing:.5px;font-weight:600;display:block}.handwritten{font-size:12px;letter-spacing:-.3px;display:block;margin-top:9px}.note-diagram{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:16px;font-family:Consolas,monospace;font-size:8px}.note-lock{border:1px solid #a89d83;border-radius:4px;padding:2px 12px;font-size:7px}.note-underline{display:block;font-size:9px;margin-top:15px;text-decoration:underline;text-decoration-color:#c1b194;text-underline-offset:4px}.study-section{padding:88px 0;background:var(--surface-soft);border-block:1px solid var(--line)}.study-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:80px}.study-section .section-description{margin-top:15px}.study-mark{font-size:22px;font-weight:600;font-family:Consolas,monospace;letter-spacing:-1px;line-height:1.8;margin-top:35px;color:#a7b3ca}.study-mark span{color:var(--blue);margin:0 10px}.study-list{border-top:1px solid var(--line)}.study-entry{border-bottom:1px solid var(--line);padding:23px 0}.study-entry summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:25px;cursor:pointer}.study-entry summary::-webkit-details-marker{display:none}.log-category{font-family:Consolas,monospace;font-size:8px;letter-spacing:1.5px;color:var(--muted)}.study-entry h3{font-size:15px;font-weight:600;letter-spacing:-.4px;margin-top:8px}.details-indicator{font-size:21px;font-weight:300;color:var(--muted);transition:transform .2s}.study-entry[open] .details-indicator{transform:rotate(45deg);color:var(--blue)}.entry-content{padding-top:17px;padding-right:30px}.entry-content p{font-size:11px;color:var(--muted);line-height:2}.entry-content code{font-size:10px;color:var(--blue)}.entry-content .text-button{margin-top:15px}.entry-content .entry-small{margin-top:10px}.contact-section{padding:80px 0 45px}.contact-panel{display:grid;grid-template-columns:1.25fr 1fr;gap:60px;padding:43px 47px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}.contact-panel h2{font-size:29px;font-weight:700;letter-spacing:-1.6px;margin-top:18px;line-height:1.55}.contact-panel>div>p:not(.eyebrow){font-size:11px;line-height:1.9;color:var(--muted);margin-top:18px}.contact-links{display:flex;flex-direction:column;justify-content:center}.contact-item{padding:19px 0;display:flex;align-items:center;gap:15px;border-bottom:1px solid var(--line)}.contact-icon{height:27px;width:27px;color:var(--muted);font-size:27px;line-height:1;text-align:center}.contact-item>div{display:flex;flex-direction:column;gap:3px}.contact-item>div>span{font-size:8px;font-weight:600;letter-spacing:1.4px;color:var(--muted)}.contact-item strong{font-size:12px;font-weight:500}.pending-label{margin-left:auto;color:var(--muted);background:var(--surface-soft);border:1px solid var(--line);padding:3px 8px;border-radius:4px;font-size:8px}.contact-links p.contact-note{font-size:9px;color:var(--muted);margin-top:14px}.site-footer{display:flex;align-items:center;justify-content:space-between;padding-bottom:28px;gap:20px}.footer-brand{font-size:12px;font-weight:800;letter-spacing:1px}.site-footer p{font-size:9px;color:var(--muted)}.back-top{font-size:10px;color:var(--muted);display:flex;align-items:center;gap:10px}.back-top span{font-size:17px;color:var(--blue)}
+/* 프로젝트 상세와 실제 동작하는 데모 */
+.project-dialog{width:min(800px,calc(100% - 30px));max-height:90vh;border:1px solid var(--line);border-radius:17px;background:var(--surface);color:var(--text);padding:0;box-shadow:0 25px 110px #09132c55;overscroll-behavior:contain}.project-dialog::backdrop{background:#15213d88;backdrop-filter:blur(5px)}.dialog-top{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;background:var(--surface);padding:15px 25px;border-bottom:1px solid var(--line);z-index:2}.dialog-top>span{font-family:Consolas,monospace;font-size:10px;letter-spacing:1px;color:var(--muted)}.dialog-close{font-size:26px;line-height:1}.dialog-body{padding:26px 30px 32px}.dialog-body h2{font-size:25px;letter-spacing:-1px;margin-bottom:12px}.dialog-description{font-size:13px;line-height:1.9;color:var(--muted);margin-bottom:19px}.demo-note{font-size:10px;color:var(--muted);margin-top:15px}.demo-tabs{display:flex;gap:6px;padding:5px;background:var(--surface-soft);border-radius:8px;margin:22px 0 16px}.demo-tabs button{padding:8px 14px;border-radius:5px;font-size:11px;color:var(--muted);flex:1}.demo-tabs button[aria-selected=true]{background:var(--surface);color:var(--blue);box-shadow:0 2px 7px #1d305410;font-weight:600}.demo-tabpanel[hidden]{display:none}.mouse-pad{height:225px;border:1px solid var(--line);border-radius:10px;position:relative;background-color:var(--blue-soft);background-image:radial-gradient(color-mix(in srgb,var(--blue) 15%,transparent) 1px,transparent 1px);background-size:18px 18px;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none;color:var(--blue)}.mouse-pad>span{font-size:12px;pointer-events:none}.mouse-dot{position:absolute;display:none;width:15px;height:15px;margin:-7.5px 0 0 -7.5px;border:2px solid var(--blue);background:var(--surface);border-radius:50%;pointer-events:none;box-shadow:0 0 0 5px color-mix(in srgb,var(--blue) 10%,transparent)}.coordinate-output{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 3px;font-size:10px;color:var(--muted);font-family:Consolas,monospace}.demo-instruction{font-size:12px;color:var(--muted);margin-bottom:12px}.keyboard-input{width:100%;border:1px solid var(--line);background:var(--surface-soft);color:var(--text);padding:14px 17px;border-radius:8px;font-size:13px}.key-output{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:16px}.key-tile{padding:23px;background:var(--blue-soft);border-radius:9px;display:flex;flex-direction:column;gap:11px;text-align:center}.key-tile span{font-size:11px;color:var(--muted);font-family:Consolas,monospace}.key-tile strong{font-size:23px;font-family:Consolas,monospace;font-weight:500;color:var(--blue);overflow-wrap:anywhere;word-break:break-all}.arrow-demo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.arrow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;max-width:240px}.arrow-cell{aspect-ratio:1;border:1px solid var(--line);border-radius:7px;background:var(--surface-soft);display:grid;place-items:center;font-size:15px;color:var(--muted)}.arrow-cell.current{background:var(--blue);color:white;border-color:var(--blue)}.arrow-controls{display:grid;grid-template-columns:repeat(3,39px);gap:5px;justify-content:center}.arrow-controls button{border:1px solid var(--line);height:38px;background:var(--surface-soft);border-radius:6px;font-size:19px}.arrow-controls button:first-child{grid-column:2}.arrow-controls button:nth-child(2){grid-column:1}.grid-status{font-size:10px;color:var(--muted);margin-top:10px}.shop-list{border:1px solid var(--line);border-radius:10px;overflow:hidden}.shop-option{padding:17px 20px;display:flex;align-items:center;gap:15px;font-size:13px;cursor:pointer}.shop-option+.shop-option{border-top:1px solid var(--line)}.shop-option input{width:17px;height:17px;accent-color:var(--blue);cursor:pointer}.shop-option strong{font-size:13px;font-weight:500;margin-left:auto;font-variant-numeric:tabular-nums}.shop-summary{display:flex;align-items:center;justify-content:space-between;background:var(--blue-soft);padding:20px;border-radius:9px;margin-top:15px}.shop-summary>span{font-size:12px;color:var(--muted)}.shop-summary output{font-size:27px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}.shop-actions{display:flex;align-items:center;justify-content:space-between;margin-top:17px}.shop-actions>span{font-size:11px;color:var(--muted)}.small-button{font-size:11px;padding:7px 13px;border:1px solid var(--line);border-radius:6px;background:var(--surface-soft)!important}.detail-section-title{font-size:13px!important;margin:22px 0 10px}.detail-list{padding-left:19px;font-size:12px;color:var(--muted);line-height:1.9}.detail-code{font-family:Consolas,monospace;white-space:pre-wrap;font-size:11px;line-height:1.9;word-break:break-word;overflow-wrap:anywhere;background:var(--surface-soft);padding:17px;border:1px solid var(--line);border-radius:8px;color:var(--text)}.note-concepts{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.note-concepts span{font-size:10px;background:var(--blue-soft);color:var(--blue);padding:5px 10px;border-radius:4px}.gallery-controls{display:flex;justify-content:space-between;align-items:center;margin:17px 0 10px}.gallery-controls span{font-size:11px;color:var(--muted)}.gallery-buttons{display:flex;gap:7px}.study-photo{display:block;width:100%;max-height:550px;object-fit:contain;background:var(--surface-soft);border:1px solid var(--line);border-radius:8px}.photo-caption{font-size:11px;color:var(--muted);margin-top:9px}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);padding:10px 18px;border-radius:8px;background:var(--text);color:var(--surface);font-size:12px;opacity:0;pointer-events:none;z-index:90;transition:opacity .2s,transform .2s}.toast.visible{opacity:1;transform:translate(-50%,0)}
+/* 다크 모드 */
+html[data-theme=dark]{--bg:#141820;--surface:#1b212d;--surface-soft:#181e28;--text:#e8ecf4;--muted:#a0aabd;--line:#303846;--blue:#82a5ff;--blue-soft:#242f4b;--green:#69c8a2;--shadow:0 20px 70px #0002;color-scheme:dark}html[data-theme=dark] .moon-icon{display:none}html[data-theme=dark] .sun-icon{display:block}html[data-theme=dark] .button-primary{background:#3e6be9;border-color:#3e6be9;color:white}html[data-theme=dark] .html-icon{background:#432e29;color:#f0ad82}html[data-theme=dark] .js-icon{background:#3c3928;color:#dfc66a}html[data-theme=dark] .java-icon{background:#293448;color:#a9beed}html[data-theme=dark] .os-icon{background:#273d36;color:#94c1ad}html[data-theme=dark] .filter-button.selected{color:#151a24}html[data-theme=dark] .arrow-cell.current{color:#15203b}
+@keyframes blink{50%{opacity:0}}
+/* 태블릿과 휴대폰 */
+@media(min-width:1450px){.hero{padding-top:92px}.hero-footer{margin-top:80px}.hero-grid{gap:65px}}
+@media(max-width:1050px){.container{width:calc(100% - 64px)}.header-inner{width:calc(100% - 64px)}nav{gap:22px}.hero-grid{gap:24px;grid-template-columns:1.3fr 1fr}h1{font-size:clamp(38px,4.7vw,54px);letter-spacing:-2.8px}.hero{padding-top:60px}.profile-placeholder{min-height:240px}.hero-intro{font-size:15px}.about-layout{gap:55px}.section-heading h2{font-size:27px}.skills-grid{gap:12px}.skill-card{padding:20px 16px}.skill-state{right:14px;top:29px;font-size:8px}.project-visual{padding:40px 20px 20px}.project-info{padding:22px 20px}.project-info h3{font-size:15px}.project-bottom{align-items:flex-end}.tech-tags span{font-size:7px}.study-layout{gap:45px}.contact-panel{gap:35px;padding:35px}.contact-panel h2{font-size:25px}}
+@media(max-width:760px){html{scroll-padding-top:80px}.container,.header-inner{width:calc(100% - 42px)}.header-inner{height:69px;gap:20px}.brand{font-size:14px}.brand-symbol{width:31px;height:31px;font-size:23px}.header-actions{margin-left:auto}.menu-toggle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:0}.menu-toggle span{width:18px;height:1.5px;background:var(--text);transition:transform .2s}.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(3.25px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-3.25px) rotate(-45deg)}nav{display:none;position:absolute;top:69px;left:0;right:0;padding:15px 21px 22px;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 15px 20px #09142608;grid-template-columns:repeat(3,1fr);gap:0 12px}nav.open{display:grid}.nav-link{line-height:45px;text-align:center}.nav-link.active:after{bottom:4px}.hero{padding-top:45px}.hero-grid{grid-template-columns:1fr;gap:21px}.hero-eyebrow{font-size:8px;margin-bottom:22px;letter-spacing:1.1px}h1{font-size:clamp(32px,7.4vw,52px);letter-spacing:-2.3px}.hero-intro{font-size:14px;margin-top:23px}.hero-description{font-size:12px}.hero-buttons{margin-top:24px;gap:8px}.button{font-size:11px;padding:12px 14px;gap:12px}.hero-tags{font-size:10px;margin-top:20px}.profile-area{max-width:410px;width:100%;justify-self:center;padding:25px 22px 13px}.profile-top{padding:13px 16px}.profile-placeholder{min-height:220px}.profile-placeholder strong{font-size:22px}.profile-placeholder svg{width:48px;height:48px}.profile-bottom{padding:13px 15px;font-size:9px}.profile-caption{margin-top:23px;font-size:9px}.hero-footer{margin-top:18px;padding:21px 0}.hero-footer>span{font-size:7px}.hero-footer strong{font-size:9px}.scroll-link{font-size:6px;letter-spacing:1px;gap:12px}.about-section{padding:61px 0}.about-layout{grid-template-columns:1fr;gap:30px}.section-heading h2{font-size:26px;letter-spacing:-1.5px;margin-top:14px}.eyebrow{font-size:9px;letter-spacing:1.5px}.section-number{width:23px;height:23px;font-size:9px}.about-lead{font-size:21px;margin-bottom:15px}.about-content>p:not(.about-lead){font-size:12px}.about-facts>div{font-size:11px;gap:12px}.about-facts dt{width:80px}.goal-note{padding:15px;gap:10px}.goal-note p{font-size:10px}.goal-note br{display:none}.skills-section{padding:54px 0 58px}.heading-row{align-items:flex-start;flex-direction:column;gap:12px}.heading-row .section-description{text-align:left;font-size:11px}.heading-row .section-description br{display:none}.skills-grid{grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px}.skill-card{padding:20px 16px}.skill-icon{width:34px;height:34px;font-size:15px;margin-bottom:19px}.skill-state{font-size:7px;right:13px;top:30px}.skill-card h3{font-size:14px}.skill-card p{font-size:10px;margin-top:9px;line-height:1.9}.skill-tags{gap:4px;margin-top:15px}.skill-tags span{font-size:7px;padding:2px 5px}.projects-section{padding:57px 0 60px}.work-count{display:none}.project-filters{margin:23px 0 20px;gap:5px}.filter-button{font-size:10px;padding:6px 11px}.projects-grid{grid-template-columns:1fr;gap:20px}.project-visual{height:232px;padding:40px 25px 25px}.mini-browser{width:82%;max-width:330px}.mini-shop{max-width:275px;width:75%}.visual-label{left:20px;font-size:7px}.project-info{padding:22px 20px}.project-info h3{font-size:16px}.project-info p{font-size:11px}.tech-tags span{font-size:8px}.text-button{font-size:10px}.study-project{display:block;grid-column:auto}.study-project .project-visual{height:231px}.study-project .project-info{padding:22px 20px}.study-project .project-meta{margin-bottom:10px}.note-paper{width:83%;max-width:330px;padding:24px}.study-section{padding:55px 0}.study-layout{grid-template-columns:1fr;gap:30px}.study-mark{display:none}.study-section .section-description{font-size:11px;margin-top:12px}.study-section .section-description br{display:none}.study-entry{padding:22px 0}.study-entry h3{font-size:14px}.entry-content{padding-right:10px}.contact-section{padding:54px 0 30px}.contact-panel{grid-template-columns:1fr;padding:27px 23px;gap:16px}.contact-panel h2{font-size:24px;letter-spacing:-1.5px}.contact-panel>div>p:not(.eyebrow){font-size:10px}.contact-item{padding:16px 0}.site-footer{padding-bottom:25px;flex-wrap:wrap;gap:12px}.site-footer p{font-size:8px;order:3;flex-basis:100%}.back-top{margin-left:auto;font-size:9px}.dialog-top{padding:12px 17px}.dialog-body{padding:23px 20px 26px}.dialog-body h2{font-size:22px}.dialog-description{font-size:12px}.demo-tabs button{padding:8px 5px;font-size:10px}.coordinate-output{font-size:9px}.mouse-pad{height:200px}.mouse-pad>span{font-size:11px}.arrow-demo{gap:12px;grid-template-columns:1.1fr 1fr}.arrow-controls{grid-template-columns:repeat(3,31px);gap:4px}.arrow-controls button{height:32px;font-size:17px}.arrow-cell{font-size:12px}.key-tile{padding:18px 9px}.key-tile strong{font-size:18px}.shop-option{padding:16px 14px;font-size:12px}.shop-option strong{font-size:12px}.shop-summary{padding:17px}.shop-summary output{font-size:24px}}
+@media(max-width:370px){.container,.header-inner{width:calc(100% - 32px)}h1{font-size:30px;letter-spacing:-1.7px}.button{padding:10px;font-size:10px;gap:9px}.skill-state{position:static;display:block;margin:-10px 0 10px;font-size:8px}.skill-icon{margin-bottom:20px}.hero-intro{font-size:13px}.section-heading h2{font-size:24px}.project-bottom{gap:7px}.tech-tags{gap:3px}.project-info{padding:20px 17px}.tech-tags span{font-size:7px}}
+@media(max-width:760px){.profile-grid{left:0;right:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 
-      <form id="applicationForm">
-        <label for="name">이름</label>
-        <input id="name" name="name" maxlength="40" required>
 
-        <label for="food">음식</label>
-        <input id="food" name="food" maxlength="100" required>
 
-        <label for="message">하고 싶은 말</label>
-        <textarea id="message" name="message" maxlength="300" required></textarea>
+/* Apps Script 버전: 읽기 편한 글자 크기와 한 파일 구성 */
+:root { --bg:#f8f9fc; }
+body { font-size:1rem; }
+.nav-link { font-size:.875rem; }
+.eyebrow, .visual-label, .project-meta, .log-category, .work-count, .hero-footer>span, .scroll-link, .profile-top { font-size:.75rem; }
+.hero-eyebrow { font-size:.75rem; letter-spacing:.09em; }
+.hero-intro { font-size:1.125rem; }
+.hero-description, .section-description { font-size:1rem; }
+.button, .filter-button, .text-button, .small-button, .demo-tabs button { font-size:.875rem; }
+.hero-tags, .profile-placeholder>span, .profile-bottom, .profile-caption, .skill-state { font-size:.75rem; }
+.about-content>p:not(.about-lead), .skill-card p, .project-info p, .entry-content p, .dialog-description, .detail-list, .demo-instruction, .contact-panel>div>p:not(.eyebrow) { font-size:1rem; }
+.about-facts>div, .goal-note p, .skill-tags span, .tech-tags span, .contact-item strong, .contact-item>div>span, .contact-links p.contact-note, .site-footer p, .back-top { font-size:.875rem; }
+.skill-tags, .tech-tags { gap:6px; }
+.skill-tags span, .tech-tags span { padding:3px 8px; }
+.skill-state { top:34px; }
+.skill-card h3 { font-size:1.125rem; }
+.skill-card { padding:24px 20px; }
+.project-info { padding:26px; }
+.project-info h3, .study-entry h3 { font-size:1.125rem; }
+.project-bottom { flex-wrap:wrap; row-gap:15px; }
+.project-meta { gap:10px; }
+.study-project .project-info { padding:30px; }
+.goal-note { padding:18px 20px; }
+.goal-note>span, .visual-arrow { display:none; }
+.hero-footer strong, .footer-brand { font-size:.875rem; }
+.contact-panel>div>p:not(.eyebrow) { line-height:1.85; }
+.contact-note { line-height:1.8; }
+.pending-label, .demo-note, .grid-status, .shop-actions>span, .note-concepts span, .entry-content code, .shop-summary>span, .dialog-top>span { font-size:.875rem; }
+.coordinate-output { font-size:.875rem; }
+.keyboard-input, .shop-option, .shop-option strong, .detail-code { font-size:1rem; }
+.detail-section-title { font-size:1rem!important; }
+.demo-tabs { flex-wrap:wrap; }
+.note-topics { display:flex; gap:7px; flex-wrap:wrap; margin:24px 0 16px; }
+.note-topic { border:1px solid var(--line); border-radius:7px; padding:9px 12px; font-size:.875rem; color:var(--muted); }
+.note-topic[aria-pressed=true] { background:var(--blue-soft); border-color:var(--blue); color:var(--blue); }
+.note-detail { border:1px solid var(--line); background:var(--surface-soft); padding:22px; border-radius:10px; }
+.note-detail h3 { font-size:1.125rem; margin-bottom:13px; }
+.note-detail p { font-size:1rem; line-height:1.95; color:var(--muted); }
+.note-detail p+p { margin-top:12px; }
+.note-detail code { font-family:Consolas,monospace; color:var(--blue); }
+.note-example { background:var(--surface); border-left:3px solid var(--blue); padding:15px 17px; margin-top:20px; font-size:.875rem; line-height:1.9; }
+.note-source { font-size:.875rem; color:var(--muted); margin-top:16px; }
+@media(max-width:1050px) { .about-layout { gap:45px; } .skills-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .study-layout { gap:40px; } }
+@media(max-width:760px) {
+ .hero-eyebrow { font-size:.75rem; letter-spacing:.03em; }
+ .hero-intro { font-size:1rem; }
+ .hero-description, .section-description, .heading-row .section-description, .study-section .section-description { font-size:1rem; }
+ .hero-buttons { flex-wrap:wrap; }
+ .button, .filter-button, .text-button { font-size:.875rem; }
+ .hero-tags { flex-wrap:wrap; gap:8px 12px; font-size:.875rem; }
+ .about-facts>div { font-size:.875rem; }
+ .about-facts dt { width:76px; }
+ .goal-note p { font-size:.875rem; }
+ .skill-state { position:static; display:block; margin:0 0 10px; font-size:.75rem; }
+ .skill-icon { margin-bottom:12px; }
+ .project-info, .study-project .project-info { padding:22px; }
+ .project-info h3, .study-entry h3 { font-size:1.125rem; }
+ .hero-footer { gap:20px; }
+ .hero-footer>span { font-size:.75rem; letter-spacing:0; }
+ .scroll-link { font-size:.75rem; letter-spacing:0; text-align:right; }
+ .profile-top, .profile-placeholder>span, .profile-bottom, .profile-caption { font-size:.75rem; }
+ .profile-bottom { overflow-wrap:anywhere; word-break:normal; }
+ .skill-tags span, .tech-tags span { font-size:.75rem; }
+ .site-footer p { font-size:.75rem; }
+ .back-top { font-size:.875rem; }
+ .contact-item>div>span { font-size:.75rem; }
+ .contact-links p.contact-note { font-size:.875rem; }
+ .dialog-body { padding:22px 18px; }
+ .demo-tabs button { font-size:.875rem; padding:8px 6px; }
+ .coordinate-output, .demo-note { font-size:.875rem; }
+ .mouse-pad>span { font-size:.875rem; padding:20px; text-align:center; }
+ .dialog-top>span { font-size:.75rem; }
+ .shop-option strong { white-space:nowrap; }
+ .note-detail { padding:18px; }
+}
+@media(max-width:560px) { .skills-grid { grid-template-columns:1fr; } .skill-card { padding:24px; } .skill-state { position:absolute; right:24px; top:30px; } .hero-footer { align-items:center; } }
 
-        <button id="submitButton" type="submit">확인</button>
-        <div id="status" role="status" aria-live="polite"></div>
-      </form>
-    </main>
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#home" class="brand" aria-label="조재완 포트폴리오 첫 화면"><span class="brand-symbol">j.</span><span>JAEWAN<span class="brand-dot">.</span></span></a>
+      <nav id="navigation" aria-label="주 메뉴">
+        <a class="nav-link active" href="#home" aria-current="location">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#study">Study</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button theme-toggle" type="button" aria-label="다크 모드로 전환" title="테마 바꾸기">
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 13.1A8.5 8.5 0 0 1 10.9 3.5 8.5 8.5 0 1 0 20.5 13.1Z"/></svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg>
+        </button>
+        <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="메뉴 열기"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
 
-    <script>
-      const form = document.getElementById('applicationForm');
-      const button = document.getElementById('submitButton');
-      const status = document.getElementById('status');
+  <main id="main">
+    <section class="hero section" id="home" aria-labelledby="home-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow hero-eyebrow">LEARNING, ONE STEP AT A TIME</div>
+            <h1 id="home-title">작은 호기심을,<br><span>직접 만드는 코드로.</span></h1>
+            <p class="hero-intro">안녕하세요, 소프트웨어학과 <strong>조재완</strong>입니다.</p>
+            <p class="hero-description">전자기기를 좋아하는 마음에서 시작해<br class="desktop-break"> 프로그램을 만드는 즐거움을 배워가고 있습니다.</p>
+            <div class="hero-buttons"><a class="button button-primary" href="#projects">프로젝트 살펴보기</a><a class="button button-secondary" href="#about">저를 소개합니다</a></div>
+            <div class="hero-tags"><span>소프트웨어</span><span>전자기기</span><span>새로운 도전</span></div>
+          </div>
+          <div class="profile-area">
+            <div class="profile-grid" aria-hidden="true"></div>
+            <div class="profile-card" role="img" aria-label="프로필 사진 자리. 출력 오류라는 문구가 표시되어 있습니다.">
+              <div class="profile-top"><span><span class="tiny-square"></span> PROFILE.IMG</span><span>JAEWAN</span></div>
+              <div class="profile-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="8" y="8" width="48" height="48" rx="5"/><circle cx="23" cy="24" r="5"/><path d="m10 45 14-13 12 10 8-7 12 10M43 13l11 11m0-11L43 24"/></svg>
+                <strong>출력 오류</strong>
+                <span>프로필 이미지가 표시되지 않습니다.</span>
+              </div>
+              <div class="profile-bottom"><code><span>&gt;</span> still learning, still building<span class="cursor">_</span></code></div>
+            </div>
+            <div class="profile-caption"><span class="caption-line"></span> 아직 채워가는 중입니다.</div>
+          </div>
+        </div>
+        <div class="hero-footer"><span>SOFTWARE STUDENT<br><strong>배우고, 만들고, 기록하기</strong></span><a href="#about" class="scroll-link">아래로 내려보기</a></div>
+      </div>
+    </section>
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        if (!form.reportValidity()) return;
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container about-layout">
+        <div class="section-heading"><p class="eyebrow">ABOUT ME</p><h2 id="about-title">좋아하는 것에서<br>배움의 방향을 찾습니다<span class="accent">.</span></h2></div>
+        <div class="about-content">
+          <p class="about-lead">기술을 사용하는 사람에서,<br><strong>직접 만드는 사람으로.</strong></p>
+          <p>스마트폰과 태블릿 같은 전자기기에 관심이 많습니다. 새로운 기기의 기능을 살펴보며, 그 안에서 프로그램이 어떻게 동작하는지 알아가는 것을 좋아합니다.</p>
+          <p>현재 소프트웨어학과에서 프로그래밍의 기초를 배우고 있습니다. 수업에서 접한 내용을 직접 실행하고, 작은 기능부터 하나씩 구현하며 실력을 쌓아가려 합니다.</p>
+          <dl class="about-facts"><div><dt>전공</dt><dd>소프트웨어학과</dd></div><div><dt>관심 분야</dt><dd>전자기기 · 소프트웨어</dd></div><div><dt>앞으로의 목표</dt><dd>일본 유학 · 프로그래밍 역량 향상</dd></div></dl>
+          <div class="goal-note"><span aria-hidden="true">↗</span><p>일본 유학을 통해 새로운 환경을 경험하고,<br>꾸준한 학습으로 프로그램을 만드는 역량을 키우고 싶습니다.</p></div>
+        </div>
+      </div>
+    </section>
 
-        button.disabled = true;
-        status.className = '';
-        status.textContent = '신청 내용을 저장하고 있습니다...';
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading heading-row"><div><p class="eyebrow">MY TOOLBOX</p><h2 id="skills-title">지금 배우고 있는 기술<span class="accent">.</span></h2></div><p class="section-description">수업과 실습을 통해<br>기초부터 차근차근 익히고 있습니다.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-icon html-icon" aria-hidden="true">&lt;/&gt;</div><span class="skill-state">기초 실습</span><h3>HTML &amp; CSS</h3><p>페이지의 구조를 만들고 색상, 배치, 화면 크기에 맞는 스타일을 적용합니다.</p><div class="skill-tags"><span>페이지 구성</span><span>스타일링</span></div></article>
+          <article class="skill-card"><div class="skill-icon js-icon" aria-hidden="true">JS</div><span class="skill-state">기초 실습</span><h3>JavaScript</h3><p>마우스·키보드 이벤트와 DOM을 이용해 사용자 입력에 반응하는 화면을 만듭니다.</p><div class="skill-tags"><span>이벤트</span><span>DOM</span></div></article>
+          <article class="skill-card"><div class="skill-icon java-icon" aria-hidden="true">{ }</div><span class="skill-state">학습 중</span><h3>Java</h3><p>수업 과제를 통해 기본 문법과 프로그램을 구성하는 방법을 공부하고 있습니다.</p><div class="skill-tags"><span>기본 문법</span><span>프로그래밍</span></div></article>
+          <article class="skill-card"><div class="skill-icon os-icon" aria-hidden="true">⌘</div><span class="skill-state">개념 학습</span><h3>운영체제</h3><p>스레드와 공유 자원, 임계구역, 동기화와 세마포어의 원리를 정리합니다.</p><div class="skill-tags"><span>스레드</span><span>동기화</span></div></article>
+        </div>
+      </div>
+    </section>
 
-        google.script.run
-          .withSuccessHandler(function (reply) {
-            status.className = 'success';
-            status.textContent = reply;
-            form.reset();
-            button.disabled = false;
-          })
-          .withFailureHandler(function (error) {
-            status.className = 'error';
-            status.textContent = '저장에 실패했습니다: ' + error.message;
-            button.disabled = false;
-          })
-          .saveApplication({
-            name: form.elements.name.value,
-            food: form.elements.food.value,
-            message: form.elements.message.value
-          });
-      });
-    </script>
-  </body>
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading heading-row"><div><p class="eyebrow">SELECTED WORK</p><h2 id="projects-title">배운 것을 직접 만들어보기<span class="accent">.</span></h2></div><span class="work-count">PROJECTS &amp; NOTES</span></div>
+        <div class="project-filters" role="group" aria-label="프로젝트 분류"><button class="filter-button selected" type="button" data-filter="all" aria-pressed="true">전체 <span>3</span></button><button class="filter-button" type="button" data-filter="web" aria-pressed="false">웹 실습 <span>2</span></button><button class="filter-button" type="button" data-filter="study" aria-pressed="false">학습 기록 <span>1</span></button></div>
+        <div class="projects-grid">
+          <article class="project-card" data-category="web">
+            <button class="project-visual event-visual" type="button" data-project="events" aria-label="마우스와 키보드 이벤트 실습 자세히 보기"><span class="visual-label">EVENT PLAYGROUND</span><div class="mini-browser" aria-hidden="true"><div class="mini-browser-top"><i></i><i></i><i></i><span>event-lab.html</span></div><div class="mini-event"><span class="event-crosshair">+</span><span class="event-coordinate">x: 128 &nbsp; y: 64</span><svg class="pointer-art" viewBox="0 0 32 40"><path d="M4 2v29l8-8 6 14 7-3-6-13h11Z" fill="#285ae8" stroke="white" stroke-width="2"/></svg><span class="event-chip">onmousemove</span></div></div><span class="visual-arrow" aria-hidden="true">↗</span></button>
+            <div class="project-info"><div class="project-meta"><span>WEB PROGRAMMING</span></div><h3><button class="title-button" type="button" data-project="events">마우스와 키보드 이벤트 실습</button></h3><p>마우스 좌표를 확인하고, 키 입력에 따라 화면이 바뀌는 작은 이벤트 실험실입니다.</p><div class="project-bottom"><div class="tech-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><button class="text-button" type="button" data-project="events">체험하기</button></div></div>
+          </article>
+          <article class="project-card" data-category="web">
+            <button class="project-visual shop-visual" type="button" data-project="shop" aria-label="선택 물품 금액 계산기 자세히 보기"><span class="visual-label">A LITTLE INTERACTION</span><div class="mini-shop" aria-hidden="true"><div class="mini-shop-row"><span class="mini-check checked">✓</span><span>모자</span><strong>10,000</strong></div><div class="mini-shop-row"><span class="mini-check"></span><span>구두</span><strong>30,000</strong></div><div class="mini-shop-row"><span class="mini-check checked">✓</span><span>가방</span><strong>80,000</strong></div><div class="mini-total"><span>TOTAL</span><strong>90,000<small>원</small></strong></div></div><span class="visual-arrow" aria-hidden="true">↗</span></button>
+            <div class="project-info"><div class="project-meta"><span>WEB PROGRAMMING</span></div><h3><button class="title-button" type="button" data-project="shop">선택하면 계산되는 장바구니</button></h3><p>체크박스로 물품을 선택하면 총금액이 바로 바뀌는 계산 기능을 구현했습니다.</p><div class="project-bottom"><div class="tech-tags"><span>폼 요소</span><span>이벤트</span><span>DOM</span></div><button class="text-button" type="button" data-project="shop">체험하기</button></div></div>
+          </article>
+          <article class="project-card study-project" data-category="study">
+            <button class="project-visual notes-visual" type="button" data-project="notes" aria-label="스레드와 동기화 학습 기록 보기"><span class="visual-label">THINK. WRITE. UNDERSTAND.</span><div class="note-paper" aria-hidden="true"><span class="note-title">Thread &amp; Synchronization</span><span class="handwritten">공유 자원에 접근할 때는?</span><div class="note-diagram"><span>Thread A</span><span class="note-lock">LOCK</span><span>Thread B</span></div><span class="note-underline">임계구역 · 상호 배제 · 세마포어</span></div><span class="visual-arrow" aria-hidden="true">↗</span></button>
+            <div class="project-info"><div class="project-meta"><span>OPERATING SYSTEMS</span></div><h3><button class="title-button" type="button" data-project="notes">스레드와 동기화 개념 정리</button></h3><p>수기 과제에서 다룬 공유 자원과 임계구역, 세마포어의 동작 원리를 정리했습니다.</p><div class="project-bottom"><div class="tech-tags"><span>운영체제</span><span>수기 과제</span></div><button class="text-button" type="button" data-project="notes">기록 보기</button></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section study-section" id="study" aria-labelledby="study-title">
+      <div class="container study-layout">
+        <div class="section-heading"><p class="eyebrow">LEARNING LOG</p><h2 id="study-title">작은 배움도,<br>하나씩 남기기<span class="accent">.</span></h2><p class="section-description">완성된 결과와 함께<br>이해해 가는 과정도 기록합니다.</p><div class="study-mark" aria-hidden="true">learn<span>→</span>build<br><span>↳</span> repeat.</div></div>
+        <div class="study-list">
+          <details class="study-entry" open><summary><div><span class="log-category">WEB · EVENTS</span><h3>사용자의 행동이 화면의 변화로 이어지는 과정</h3></div><span class="details-indicator" aria-hidden="true">+</span></summary><div class="entry-content"><p><code>onmousemove</code>, <code>onkeydown</code>, <code>onchange</code> 예제로 이벤트를 공부했습니다. 이벤트 객체에서 좌표와 키 정보를 읽고, DOM 요소의 내용을 바꾸는 흐름을 확인할 수 있습니다.</p><button class="text-button" type="button" data-project="events">이벤트 실습 열기</button></div></details>
+          <details class="study-entry"><summary><div><span class="log-category">OS · SYNCHRONIZATION</span><h3>여러 스레드가 같은 자원을 사용한다면?</h3></div><span class="details-indicator" aria-hidden="true">+</span></summary><div class="entry-content"><p>공유 데이터에 동시에 접근하면 값이 잘못될 수 있습니다. 임계구역과 상호 배제의 필요성, 원자적 연산과 세마포어가 공유 자원을 관리하는 방식을 수기 과제로 정리했습니다.</p><button class="text-button" type="button" data-project="notes">수기 기록 열기</button></div></details>
+          <details class="study-entry"><summary><div><span class="log-category">AI · PORTFOLIO</span><h3>AI와 함께 만든 첫 포트폴리오</h3></div><span class="details-indicator" aria-hidden="true">+</span></summary><div class="entry-content"><p>AI를 활용해 사이트의 메뉴 구성과 소개 문구, HTML·CSS·JavaScript 초안을 만들었습니다. 수업에서 다룬 이벤트 예제를 포트폴리오 안에서 체험할 수 있도록 연결했습니다.</p><p class="entry-small">앞으로는 코드를 읽고 직접 수정하며, 프로젝트와 학습 기록을 꾸준히 추가할 계획입니다.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel"><div><p class="eyebrow">CONTACT</p><h2 id="contact-title">다음 배움을 향해,<br>계속 만들어가겠습니다<span class="accent">.</span></h2><p>조재완 · 소프트웨어학과<br>새로운 환경에서 배우고 성장할 준비를 하고 있습니다.</p></div><div class="contact-links"><div class="contact-item"><span class="contact-icon" aria-hidden="true">@</span><div><span>EMAIL</span><strong>등록 예정</strong></div><span class="pending-label">준비 중</span></div><div class="contact-item"><svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1 .2-2-1-3 4-.5 7-2 7-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 19.5 2S18 2 15 4a14 14 0 0 0-6 0C6 2 4.5 2 4.5 2a5 5 0 0 0 .1 3.5A5 5 0 0 0 3.2 9c0 4 3 5.5 7 6-1 1-1 2-1 3v4"/></svg><div><span>GITHUB</span><strong>등록 예정</strong></div><span class="pending-label">준비 중</span></div><p class="contact-note">이메일과 GitHub 링크는 추후 추가할 예정입니다.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container"><a class="footer-brand" href="#home">JAEWAN.</a><p>© <span id="year">2026</span> 조재완. 배우고 만들어가는 기록.</p><a href="#home" class="back-top">맨 위로</a></footer>
+
+  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span id="dialog-category">PROJECT DETAIL</span><button class="icon-button dialog-close" type="button" aria-label="프로젝트 상세 닫기">×</button></div><div class="dialog-body" id="dialog-body"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+// 페이지 내부 링크는 Apps Script의 iframe 안에서 이동합니다.
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    const target = document.getElementById(link.getAttribute('href').slice(1));
+    if (!target) return;
+    event.preventDefault();
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  });
+});
+
+// 조재완 포트폴리오 — 메뉴, 테마, 프로젝트 데모
+const root = document.documentElement;
+const themeButton = document.querySelector('.theme-toggle');
+let savedTheme;
+try { savedTheme = localStorage.getItem('jaewan-theme'); } catch (_) { /* 저장이 제한되어도 페이지는 작동합니다. */ }
+if (savedTheme === 'dark') root.dataset.theme = 'dark';
+function updateThemeLabel() {
+  themeButton.setAttribute('aria-label', root.dataset.theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환');
+}
+updateThemeLabel();
+themeButton.addEventListener('click', () => {
+  root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  try { localStorage.setItem('jaewan-theme', root.dataset.theme); } catch (_) {}
+  updateThemeLabel();
+});
+
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.getElementById('navigation');
+function closeMenu() {
+  navigation.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', '메뉴 열기');
+}
+menuButton.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  navigation.classList.toggle('open', open);
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+});
+document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('click', event => {
+  if (!event.target.closest('.site-header')) closeMenu();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeMenu();
+});
+window.addEventListener('resize', () => { if (window.innerWidth > 760) closeMenu(); });
+
+// 스크롤 위치에 해당하는 메뉴를 표시합니다.
+const sections = [...document.querySelectorAll('main > section[id]')];
+const navLinks = [...document.querySelectorAll('.nav-link')];
+let scrollQueued = false;
+function markCurrentSection() {
+  let current = sections[0].id;
+  sections.forEach(section => { if (section.getBoundingClientRect().top <= 160) current = section.id; });
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) current = 'contact';
+  navLinks.forEach(link => {
+    const active = link.hash === '#' + current;
+    link.classList.toggle('active', active);
+    if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
+  });
+  scrollQueued = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(markCurrentSection); }
+}, { passive: true });
+markCurrentSection();
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// 프로젝트 분류
+document.querySelectorAll('.filter-button').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.filter-button').forEach(other => {
+      const selected = other === button;
+      other.classList.toggle('selected', selected);
+      other.setAttribute('aria-pressed', String(selected));
+    });
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
+    });
+    markCurrentSection();
+  });
+});
+
+const dialog = document.getElementById('project-dialog');
+const dialogBody = document.getElementById('dialog-body');
+let lastProjectTrigger;
+const projectTemplates = {
+  events: `
+    <h2 id="dialog-title">마우스와 키보드 이벤트 실습</h2>
+    <p class="dialog-description">사용자의 움직임과 키 입력이 이벤트 객체에 어떻게 담기는지 직접 확인해 보세요. 수업 예제 11·20·21번을 바탕으로 재구성했습니다.</p>
+    <div class="demo-tabs" role="tablist" aria-label="이벤트 실습 종류">
+      <button type="button" id="tab-mouse" role="tab" aria-selected="true" aria-controls="panel-mouse" data-tab="mouse">마우스 좌표</button>
+      <button type="button" id="tab-keyboard" role="tab" aria-selected="false" aria-controls="panel-keyboard" tabindex="-1" data-tab="keyboard">키보드 입력</button>
+      <button type="button" id="tab-arrows" role="tab" aria-selected="false" aria-controls="panel-arrows" tabindex="-1" data-tab="arrows">방향키 이동</button>
+    </div>
+    <div id="panel-mouse" class="demo-tabpanel" role="tabpanel" aria-labelledby="tab-mouse" tabindex="0">
+      <div class="mouse-pad" id="mouse-pad" aria-label="마우스 좌표 실습 영역. 마우스를 움직이거나 터치하세요."><span>마우스를 움직이거나 손가락으로 터치해 보세요.</span><i class="mouse-dot" id="mouse-dot"></i></div>
+      <div class="coordinate-output"><span id="offset-position">offset: —, —</span><span id="client-position">client: —, —</span><span id="pointer-buttons">buttons: 0</span></div>
+      <p class="demo-note">offset은 실습 영역 안의 위치, client는 브라우저 화면 안의 위치입니다. buttons는 현재 누른 버튼을 나타냅니다.</p>
+    </div>
+    <div id="panel-keyboard" class="demo-tabpanel" role="tabpanel" aria-labelledby="tab-keyboard" tabindex="0" hidden>
+      <p class="demo-instruction">아래 입력창을 누르고 키를 입력해 보세요.</p>
+      <input class="keyboard-input" id="key-input" type="text" placeholder="여기를 누른 후 키를 입력하세요" autocomplete="off" aria-label="키보드 이벤트 확인용 입력창">
+      <div class="key-output"><div class="key-tile"><span>event.key</span><strong id="key-value">—</strong></div><div class="key-tile"><span>event.code</span><strong id="code-value">—</strong></div></div>
+      <p class="demo-note">key는 입력된 키의 값, code는 물리적인 키 위치를 나타냅니다. 휴대폰의 가상 키보드는 code를 제공하지 않을 수 있습니다.</p>
+    </div>
+    <div id="panel-arrows" class="demo-tabpanel" role="tabpanel" aria-labelledby="tab-arrows" tabindex="0" hidden>
+      <p class="demo-instruction">이 영역을 누른 뒤 방향키를 누르거나, 오른쪽 화살표 버튼을 사용해 보세요.</p>
+      <div class="arrow-demo"><div><div class="arrow-grid" role="group" aria-label="방향키로 이동하는 3행 3열 격자">${Array.from({length: 9}, (_, i) => `<div class="arrow-cell${i === 0 ? ' current' : ''}" data-cell="${i}">${i === 0 ? '●' : ''}</div>`).join('')}</div><p class="grid-status" id="grid-status" aria-live="polite">현재 위치: 1행 1열</p></div><div class="arrow-controls" role="group" aria-label="이동 방향"><button type="button" data-direction="ArrowUp" aria-label="위로 이동">↑</button><button type="button" data-direction="ArrowLeft" aria-label="왼쪽으로 이동">←</button><button type="button" data-direction="ArrowDown" aria-label="아래로 이동">↓</button><button type="button" data-direction="ArrowRight" aria-label="오른쪽으로 이동">→</button></div></div>
+      <p class="demo-note">격자의 경계를 벗어나지 않도록 행과 열을 확인한 뒤 선택 위치를 변경합니다.</p>
+    </div>
+    <h3 class="detail-section-title">사용한 개념</h3>
+    <div class="tech-tags"><span>이벤트 객체</span><span>좌표 프로퍼티</span><span>키보드 이벤트</span><span>DOM 조작</span></div>`,
+  shop: `
+    <h2 id="dialog-title">선택하면 계산되는 장바구니</h2>
+    <p class="dialog-description">물품을 체크하면 선택한 금액이 자동으로 합산됩니다. 수업 예제 18번의 체크박스 계산 기능을 바탕으로 재구성한 실습입니다.</p>
+    <div class="shop-list" role="group" aria-label="구입할 물품 선택">
+      <label class="shop-option"><input type="checkbox" value="10000" data-item="hat"><span>모자</span><strong>10,000원</strong></label>
+      <label class="shop-option"><input type="checkbox" value="30000" data-item="shoes"><span>구두</span><strong>30,000원</strong></label>
+      <label class="shop-option"><input type="checkbox" value="80000" data-item="bag"><span>가방</span><strong>80,000원</strong></label>
+    </div>
+    <div class="shop-summary"><span>선택한 물품의 총금액</span><output id="shop-total" aria-live="polite">0원</output></div>
+    <div class="shop-actions"><span id="shop-count">0개 선택됨</span><button class="small-button" id="shop-reset" type="button">선택 초기화</button></div>
+    <p class="demo-note">결제 기능 없이 브라우저 안에서 계산만 하는 수업 실습입니다.</p>
+    <h3 class="detail-section-title">동작 방식</h3>
+    <p class="dialog-description">체크 상태가 바뀔 때마다 선택된 물품의 값을 더한 뒤, 결과를 화면에 표시합니다.</p>
+    <pre class="detail-code"><code>let sum = 0;
+checkboxes.forEach(function (box) {
+  if (box.checked) sum += Number(box.value);
+});
+total.textContent = sum.toLocaleString('ko-KR') + '원';</code></pre>`,
+  notes: `
+    <h2 id="dialog-title">스레드와 동기화 개념 정리</h2>
+    <p class="dialog-description">제출한 운영체제 수기 과제에서 다룬 핵심 내용을 웹페이지용으로 정리했습니다. 각 주제를 눌러 확인해 보세요.</p>
+    <div class="note-topics" role="group" aria-label="운영체제 학습 주제">
+      <button class="note-topic" type="button" data-note-topic="0" aria-pressed="true">임계구역</button>
+      <button class="note-topic" type="button" data-note-topic="1" aria-pressed="false">상호 배제</button>
+      <button class="note-topic" type="button" data-note-topic="2" aria-pressed="false">공유 변수</button>
+      <button class="note-topic" type="button" data-note-topic="3" aria-pressed="false">세마포어</button>
+    </div>
+    <div class="note-detail" id="note-detail" aria-live="polite"></div>
+    <p class="note-source">학습 자료: 제출한 스레드·동기화 관련 수기 과제</p>`
+};
+
+function openProject(name, trigger) {
+  if (!projectTemplates[name]) return;
+  lastProjectTrigger = trigger;
+  dialogBody.innerHTML = projectTemplates[name];
+  document.getElementById('dialog-category').textContent = name === 'notes' ? 'STUDY NOTE / OPERATING SYSTEMS' : 'PROJECT / WEB PROGRAMMING';
+  dialog.showModal();
+  document.body.classList.add('modal-open');
+  dialog.scrollTop = 0;
+  if (name === 'events') setupEvents();
+  if (name === 'shop') setupShop();
+  if (name === 'notes') setupNotes();
+  document.querySelector('.dialog-close').focus();
+}
+document.querySelectorAll('[data-project]').forEach(button => {
+  button.addEventListener('click', () => openProject(button.dataset.project, button));
+});
+document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', event => { if (event.target === dialog) {
+  const rect = dialog.getBoundingClientRect();
+  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+}});
+dialog.addEventListener('close', () => {
+  document.body.classList.remove('modal-open');
+  if (lastProjectTrigger) lastProjectTrigger.focus({ preventScroll: true });
+});
+
+function setupEvents() {
+  const tabs = [...dialogBody.querySelectorAll('[data-tab]')];
+  function selectTab(tab, focus = false) {
+    tabs.forEach(button => {
+      const selected = button === tab;
+      button.setAttribute('aria-selected', String(selected));
+      button.tabIndex = selected ? 0 : -1;
+      document.getElementById('panel-' + button.dataset.tab).hidden = !selected;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', event => {
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault(); selectTab(tabs[next], true);
+    });
+  });
+  const pad = document.getElementById('mouse-pad');
+  const dot = document.getElementById('mouse-dot');
+  function showPosition(event) {
+    const rect = pad.getBoundingClientRect();
+    const x = Math.max(0, Math.min(rect.width - 2, Math.round(event.clientX - rect.left - 1)));
+    const y = Math.max(0, Math.min(rect.height - 2, Math.round(event.clientY - rect.top - 1)));
+    dot.style.display = 'block'; dot.style.left = x + 'px'; dot.style.top = y + 'px';
+    document.getElementById('offset-position').textContent = `offset: ${x}, ${y}`;
+    document.getElementById('client-position').textContent = `client: ${Math.round(event.clientX)}, ${Math.round(event.clientY)}`;
+    document.getElementById('pointer-buttons').textContent = 'buttons: ' + event.buttons;
+  }
+  ['pointermove', 'pointerdown', 'pointerup'].forEach(type => pad.addEventListener(type, showPosition));
+  pad.addEventListener('pointerdown', event => { pad.setPointerCapture(event.pointerId); });
+  document.getElementById('key-input').addEventListener('keydown', event => {
+    document.getElementById('key-value').textContent = event.key === ' ' ? 'Space' : event.key;
+    document.getElementById('code-value').textContent = event.code || '미제공';
+  });
+  let index = 0;
+  const arrowPanel = document.getElementById('panel-arrows');
+  function moveCell(key) {
+    const row = Math.floor(index / 3), col = index % 3;
+    let next = index;
+    if (key === 'ArrowUp' && row > 0) next -= 3;
+    if (key === 'ArrowDown' && row < 2) next += 3;
+    if (key === 'ArrowLeft' && col > 0) next -= 1;
+    if (key === 'ArrowRight' && col < 2) next += 1;
+    index = next;
+    arrowPanel.querySelectorAll('.arrow-cell').forEach((cell, cellIndex) => {
+      cell.classList.toggle('current', cellIndex === index);
+      cell.textContent = cellIndex === index ? '●' : '';
+    });
+    document.getElementById('grid-status').textContent = `현재 위치: ${Math.floor(index / 3) + 1}행 ${index % 3 + 1}열`;
+  }
+  arrowPanel.addEventListener('keydown', event => {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) { event.preventDefault(); moveCell(event.key); }
+  });
+  arrowPanel.addEventListener('pointerdown', event => { if (!event.target.closest('button')) arrowPanel.focus({ preventScroll: true }); });
+  arrowPanel.querySelectorAll('[data-direction]').forEach(button => button.addEventListener('click', () => moveCell(button.dataset.direction)));
+}
+
+function setupShop() {
+  const checkboxes = [...dialogBody.querySelectorAll('.shop-option input')];
+  function calculate() {
+    let sum = 0, count = 0;
+    checkboxes.forEach(box => { if (box.checked) { sum += Number(box.value); count++; } });
+    document.getElementById('shop-total').textContent = sum.toLocaleString('ko-KR') + '원';
+    document.getElementById('shop-count').textContent = count + '개 선택됨';
+  }
+  checkboxes.forEach(box => box.addEventListener('change', calculate));
+  document.getElementById('shop-reset').addEventListener('click', () => { checkboxes.forEach(box => { box.checked = false; }); calculate(); });
+}
+
+function setupNotes() {
+  const topics = [
+    {
+      title: '임계구역이란?',
+      text: '<p>여러 스레드가 공유하는 데이터에 접근하는 코드 구간입니다. 동시에 실행하면 데이터가 잘못 변경될 수 있으므로 접근 순서를 관리해야 합니다.</p><div class="note-example">예: 두 스레드가 같은 구매량 변수의 값을 읽고 각각 증가시키면, 한 번의 증가가 누락될 수 있습니다.</div>'
+    },
+    {
+      title: '상호 배제와 원자적 연산',
+      text: '<p>상호 배제는 한 스레드가 임계구역을 실행하는 동안 다른 스레드가 같은 임계구역에 들어가지 못하게 하는 것입니다.</p><p>단순히 lock 값을 읽은 뒤 별도로 변경하면, 두 동작 사이에 다른 스레드가 실행될 수 있습니다. 확인과 변경을 나눠 실행하는 것만으로는 충분하지 않을 수 있습니다.</p><div class="note-example">핵심: lock의 확인과 설정을 원자적으로 처리하거나, 적절한 동기화 도구를 사용해야 합니다.</div>'
+    },
+    {
+      title: '공유 변수의 갱신을 하나로 묶기',
+      text: '<p>구매자 정보를 배열에 기록하고, 배열의 인덱스를 증가시키고, 전체 구매량을 갱신하는 상황을 생각할 수 있습니다.</p><p>여러 스레드가 같은 인덱스를 사용하면 구매자 정보가 덮어써질 수 있습니다. 관련 갱신 작업을 하나의 임계구역으로 묶어 보호해야 합니다.</p><div class="note-example">보호할 작업: 구매 정보 기록 → 인덱스 증가 → 전체 구매량 갱신</div>'
+    },
+    {
+      title: '카운팅 세마포어로 자원 관리하기',
+      text: '<p>여러 개의 공유 자원을 관리할 때 사용할 수 있는 동기화 도구입니다. 펜 10개를 여러 학생이 빌리는 상황이라면, 초기값을 10으로 설정합니다.</p><p>펜을 빌리기 전에 P 연산으로 자원을 획득하고, 사용한 뒤 V 연산으로 반환합니다. 사용 가능한 펜이 없으면 대기합니다.</p><div class="note-example">초기 자원: 펜 10개<br>사용 흐름: 자원 획득(P) → 펜 사용 → 자원 반환(V)</div>'
+    }
+  ];
+  const buttons = [...dialogBody.querySelectorAll('[data-note-topic]')];
+  function showTopic(index) {
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.noteTopic) === index)));
+    const topic = topics[index];
+    document.getElementById('note-detail').innerHTML = '<h3>' + topic.title + '</h3>' + topic.text;
+  }
+  buttons.forEach(button => button.addEventListener('click', () => showTopic(Number(button.dataset.noteTopic))));
+  showTopic(0);
+}
+
+  </script>
+</body>
 </html>
